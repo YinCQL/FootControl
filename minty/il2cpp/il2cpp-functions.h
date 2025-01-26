@@ -34,17 +34,17 @@ DO_APP_FUNC(0x07202060, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity
 
 
 DO_APP_FUNC(0x08376310, Camera*, GameUtil_get_mainCamera, ());
-DO_APP_FUNC(0x083763A0, Entity*, GameUtil_get_mainCharacter, ());
+DO_APP_FUNC(0x083763A0, app::Entity*, GameUtil_get_mainCharacter, ());
 DO_APP_FUNC(0x08376430, Transform*, GameUtil_get_playerTrans, ());
 DO_APP_FUNC(0x083764D0, Vector3, GameUtil_get_playerPos, ());
 
-DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (Entity* source, Entity* target, MethodInfo* method));
+DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (app::Entity* source, Entity* target, MethodInfo* method));
 DO_APP_FUNC(0x083E2620, Vector3, AbilitySystemUtils_GetPosition, (void*/*AbilitySystem*/* source, MethodInfo* method));
 
-DO_APP_FUNC(0x00C7E650, String*, Entity_get_name, (Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x00C8BCD0, uint32_t, Entity_get_instanceUid, (Entity* __this, MethodInfo* method));
+DO_APP_FUNC(0x00C7E650, String*, Entity_get_name, (app::Entity* __this, MethodInfo* method));
+DO_APP_FUNC(0x00C8BCD0, uint32_t, Entity_get_instanceUid, (app::Entity* __this, MethodInfo* method));
 DO_APP_FUNC(0x06692780, app::ObjectType__Enum, Entity_get_objectType, (app::Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x07357960, app::Vector3, Entity_get_position, (Entity* __this, MethodInfo* method));
+DO_APP_FUNC(0x07357960, app::Vector3, Entity_get_position, (app::Entity* __this, MethodInfo* method));
 
 
 //pickup

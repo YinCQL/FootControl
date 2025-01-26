@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Function.h"
 #include "../utils/GuiUtils.h"
@@ -8,4 +8,4 @@
 #include "../il2cpp/il2cppUtils.h"
 
 
-#include "../../api/magic_enum/magic_enum.hpp"
+#include "../api/magic_enum/magic_enum.hpp"

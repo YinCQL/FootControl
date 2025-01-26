@@ -45,6 +45,7 @@
     <ClCompile Include="Functions\World\DumbMonster.cpp" />
     <ClCompile Include="Functions\World\SkipPlot.cpp" />
     <ClCompile Include="Functions\visuals\AntiDither.cpp" />
+    <ClCompile Include="Games\Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gui\MainGUI.h" />
@@ -114,6 +115,7 @@
     <ClInclude Include="Functions\World\DumbMonster.h" />
     <ClInclude Include="Functions\World\SkipPlot.h" />
     <ClInclude Include="Functions\visuals\AntiDither.h" />
+    <ClInclude Include="Games\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="il2cpp\detours.lib" />
