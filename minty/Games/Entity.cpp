@@ -39,3 +39,19 @@ app::Vector3 Entity::getPosition() const {
     }
     return app::Entity_get_position(m_entity, nullptr);
 }
+
+void Entity::MoveTo(app::Vector3 position) {
+    if (m_entity == nullptr) {
+        return;  // 如果实体为空指针，返回
+    }
+    auto actor=app::Entity_get_actorCtrl(m_entity, nullptr);
+    app::ActorController_MoveTo(actor, position, true, nullptr);
+}
+
+void Entity::TeleportToTempFix(app::Vector3 position) {
+    if (m_entity == nullptr) {
+        return;  // 如果实体为空指针，返回
+    }
+    auto actor=app::Entity_get_actorCtrl(m_entity, nullptr);
+    app::ActorController_TeleportToTempFix(actor, position, nullptr);
+}

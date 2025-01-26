@@ -38,7 +38,7 @@ DO_APP_FUNC(0x083763A0, app::Entity*, GameUtil_get_mainCharacter, ());
 DO_APP_FUNC(0x08376430, Transform*, GameUtil_get_playerTrans, ());
 DO_APP_FUNC(0x083764D0, Vector3, GameUtil_get_playerPos, ());
 
-DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (app::Entity* source, Entity* target, MethodInfo* method));
+DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (app::Entity* source, app::Entity* target, MethodInfo* method));
 DO_APP_FUNC(0x083E2620, Vector3, AbilitySystemUtils_GetPosition, (void*/*AbilitySystem*/* source, MethodInfo* method));
 
 DO_APP_FUNC(0x00C7E650, String*, Entity_get_name, (app::Entity* __this, MethodInfo* method));
@@ -46,6 +46,9 @@ DO_APP_FUNC(0x00C8BCD0, uint32_t, Entity_get_instanceUid, (app::Entity* __this, 
 DO_APP_FUNC(0x06692780, app::ObjectType__Enum, Entity_get_objectType, (app::Entity* __this, MethodInfo* method));
 DO_APP_FUNC(0x07357960, app::Vector3, Entity_get_position, (app::Entity* __this, MethodInfo* method));
 
+DO_APP_FUNC(0x073613C0, void/*ActorController*/*, Entity_get_actorCtrl, (app::Entity* __this, MethodInfo* method));
+DO_APP_FUNC(0x07341F00, int32_t, ActorController_MoveTo, (void/*ActorController*/* __this, Vector3 targetPosition, bool ignoreUnmovable, MethodInfo* method));
+DO_APP_FUNC(0x07343BA0, void, ActorController_TeleportToTempFix, (void/*ActorController*/* __this, Vector3 inPos, MethodInfo* method));
 
 //pickup
 //DO_APP_FUNC(0x07F3F2F0, bool, InteractiveInstigatorControlComponent_SetPickupItem, (InteractiveInstigatorControlComponent* __this, Entity* item, bool ignoreSkillCheck, bool ignoreCheck, /*Nullable_1_UnityEngine_Vector3_*/app::Vector3 sourcePos, MethodInfo* method));

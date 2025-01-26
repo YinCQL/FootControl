@@ -28,6 +28,10 @@ public:
     // 获取位置
     app::Vector3 getPosition() const;
 
+    void MoveTo(app::Vector3 position);
+
+    void TeleportToTempFix(app::Vector3 position);
+
 private:
     app::Entity* m_entity;  // 持有的指针
 };
