@@ -1,13 +1,42 @@
-﻿[EN](README.md)
-# FootControl
-A Magic of Endfield
+﻿# FootControl
 
+### A Magic of Endfield
 
-## Functions
+---
 
-## Game version
-[Cbt2OS](https://launcher.hg-cdn.com/uXUuLlNbIYmMMTlN/launcher/6/1/Windows/0.3.8_Sf0rvOfH0nZWp5XU/Endfield_TBeta_global_setup.exe)
+## ✨ Features
 
+- **God Mode**: Invincible gameplay.
+- **Hit Multiplier**: Amplify your damage.
+- **Cooldown**: Remove ability cooldowns.
+- **Stamina**: Unlimited stamina for endless action.
+- **Timescale**: Adjust game speed as you like.
+- **Dumb Monster**: Disable AI for monsters.
+- **Skip Plot**: Bypass story scenes.
+- **Teleport (incomplete)**: Quickly navigate the map.
+- **Unlock FPS**: Remove frame rate limits.
+- **Anti Dither**: Improve visual clarity.
 
+---
 
+## 🎮 Supported Game Version
 
+- **[CBT OS Version](https://launcher.hg-cdn.com/uXUuLlNbIYmMMTlN/launcher/6/1/Windows/0.3.8_Sf0rvOfH0nZWp5XU/Endfield_TBeta_global_setup.exe)**
+
+---
+
+## 🛠️ How to Use
+
+1. Download the supported game version.
+2. Follow the installation instructions in the repository.
+3. Activate desired features through the FootControl interface.
+
+---
+
+## 📜 License
+
+This project is for educational purposes only. Use responsibly.
+
+---
+
+Enjoy your enhanced gameplay experience!
