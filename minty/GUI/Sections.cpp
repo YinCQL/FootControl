@@ -89,7 +89,7 @@ void Status() {
 	std::string version = about.mVersion;
 
 	ImGui::PushStyleColor(ImGuiCol_Text, { 0.17f, 0.63f, 0.45f, 1.00f });
-	ImGui::Text("FootJob");
+	ImGui::Text("FootControl");
 	ImGui::PopStyleColor();
 	ImGui::Separator();
 	for (auto& feature : functions)

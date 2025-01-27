@@ -15,7 +15,7 @@ namespace config {
 
     template <typename T>
     ConfigField<T> getValue(const std::string& path, const std::string& key, const T& defaultValue) {
-        std::ifstream configFile("FootJob.json");
+        std::ifstream configFile("FootControl.json");
         json configRoot;
 
         configFile >> configRoot;
@@ -38,7 +38,7 @@ namespace config {
 
     template<typename T>
     void setValue(const std::string& path, const std::string& key, const T& newValue) {
-        std::ifstream configFile("FootJob.json");
+        std::ifstream configFile("FootControl.json");
         json configRoot;
         
         configFile >> configRoot;

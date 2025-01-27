@@ -2,7 +2,7 @@
 "EN": {
 	"MODULE_ABOUT": "About",
 
-	"ABOUT_MINTY_VERSION": "FootJob version",
+	"ABOUT_MINTY_VERSION": "FootControl version",
 	"ABOUT_IMGUI_VERSION": "ImGui version",
 	"ABOUT_DESIGN": "Design made with love by",
 	"ABOUT_CONTRIBUTORS": "Contributors",
@@ -12,7 +12,7 @@
 	"ABOUT_FAMILY": "Special thanks to family",
 	"ABOUT_TRANSLATORS": "Translators",
 	"ABOUT_LINK": "Link",
-	"ABOUT_GITHUB": "FootJob Github",
+	"ABOUT_GITHUB": "FootControl Github",
 	"ABOUT_DISCORD": "KWT Discord",
 	"OPEN_IN_BROWSER": "Open in browser",
 
@@ -57,7 +57,7 @@
 	"SETTINGS_LANGUAGE": "Language settings",
 	"LANGUAGE_SELECT": "Select your language",
 	"SETTINGS_GENERAL": "General",
-	"MENU_HOTKEY_TITLE": "Show the FootJob menu",
+	"MENU_HOTKEY_TITLE": "Show the FootControl menu",
 	"CONSOLE_HOTKEY_TITLE": "Show console",
 	"CONSOLE_HOTKEY_DESCRIPTION": "Show/Hide console log window.",
 	"DISABLE_PROTECTION_TITLE": "Disable protection",

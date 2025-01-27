@@ -7,7 +7,7 @@ namespace cheat {
 	void About::GUI() {
 		ImGui::SeparatorText(_("About"));
 		ImGui::Text(_("This software is free, if you spend money to get it, then you will be deceived"));
-		ImGui::Text(_("footjob version : %s"), "0.9.0");
+		ImGui::Text(_("FootControl version : %s"), "0.9.0");
 		ImGui::Text(_("Game server support :  cbt2os "));
 		//ImGui::Text("ImGui version: %s", ImGui::GetVersion());
 		ImGui::Text("Founder : ");

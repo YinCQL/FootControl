@@ -10,7 +10,7 @@ static bool ifParse;
 int LangTR = 0;
 
 std::string LoadResourceString(int resourceId, LPCSTR resourceType) {
-	HMODULE handle = GetModuleHandle("FootJob.dll");
+	HMODULE handle = GetModuleHandle("FootControl.dll");
 	HRSRC resource = FindResource(handle, MAKEINTRESOURCE(resourceId), resourceType);
 	if (!resource) {
 		LOG_ERROR("Resource not found.");

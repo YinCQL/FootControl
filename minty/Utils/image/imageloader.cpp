@@ -46,7 +46,7 @@ std::optional<ImageLoader::ImageData> ImageLoader::GetImage(const std::string& i
 }
 
 bool LoadEx(const char* name, const char* type, LPBYTE& pDest, DWORD& size) {
-    HMODULE s_Handle = GetModuleHandleA("FootJob.dll");
+    HMODULE s_Handle = GetModuleHandleA("FootControl.dll");
     if (s_Handle == nullptr)
         return false;
 

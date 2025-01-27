@@ -320,7 +320,7 @@
     <Font Include="themes\fonts\m-n.otf" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="FootJob.rc" />
+    <ResourceCompile Include="FootControl.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\translations.json" />

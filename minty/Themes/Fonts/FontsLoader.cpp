@@ -24,7 +24,7 @@ static const ImWchar ranges[] =
 //包含字体文件+编码范围
 
 bool LoadFontFromResources(ImFontConfig font_cfg, const wchar_t* fontName, float fontSize) {
-    HMODULE hModuleF = GetModuleHandle("FootJob.dll");
+    HMODULE hModuleF = GetModuleHandle("FootControl.dll");
     //HMODULE hModuleF;
     // Find the resource handle within the DLL
     HRSRC hResource = FindResource(hModuleF, (LPCSTR)fontName, RT_RCDATA);

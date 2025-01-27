@@ -39,7 +39,7 @@ void Logger::log(Logger::Level logLevel, const char* format, ...) {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	SetConsoleTextAttribute(hConsole, 15);
-	std::cout << "[Footjob:";
+	std::cout << "[FootControl:";
 	SetConsoleTextAttribute(hConsole, prefix.color);
 	std::cout << prefix.text;
 	SetConsoleTextAttribute(hConsole, 15);

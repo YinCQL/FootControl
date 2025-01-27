@@ -43,7 +43,7 @@ bool LoadTextureFromResources(LPCTSTR resource_name, LPCTSTR resource_type, ID3D
 	if (pDevice == nullptr)
 		return false;
 
-	HMODULE hModuleF = GetModuleHandleA("FootJob.dll");
+	HMODULE hModuleF = GetModuleHandleA("FootControl.dll");
 	//HMODULE hModuleF;
 	// Find the resource handle within the DLL
 	HRSRC hResource = FindResource(hModuleF, resource_name, resource_type);
