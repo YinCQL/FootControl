@@ -1,6 +1,8 @@
 /x64
-/minty/x64
+/FootControl/x64
+/FootControl/FootControl/x64
 /.vs
 /Debug
-/Minty/Debug
+/FootControl/Debug
+/FootControl/.vs
 /Launcher/x64
