@@ -9,28 +9,31 @@ using namespace app;
 //UnityEngine.EventSystems.EventSystem$$Update
 //DO_APP_FUNC(0x024E4CF0,  void, EventSystem_Update, ( app::EventSystem* __this, app::MethodInfo* method));
 DO_APP_FUNC(0x03373CB0, void, GameApp_Update, (void* __this));
+DO_APP_FUNC(0x033736D0, void/*GameApp*/*, GameApp_get_instance, ());
+DO_APP_FUNC(0x033737A0, app::GameState__Enum, GameApp_get_currentState, (void/*GameApp*/* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x0337A7F0, void, GameStartState__OnEnterMainGame, (void/*GameStartState*/* __this, MethodInfo* method));
 
-
+DO_APP_FUNC(0x0CB7D7B0, void, EventSystem_RaycastAll, (void/*EventSystem*/* __this, void  /*PointerEventData*/* eventData, app::List_1_UnityEngine_EventSystems_RaycastResult_* raycastResults, app::MethodInfo* method));
 
 //damage
 
-//DO_APP_FUNC(0x07C5BF20, app::BattleNormalEffect*, EffectManager_CreateEffectOnTarget, (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, app::AbilitySystem* target, Vector3 dir, void/*ITickOwner*/* timeScaleSource, String* overrideName, app::AbilitySystem* source, MethodInfo* method));
+DO_APP_FUNC(0x07C5BF20, void/*app::BattleNormalEffect*/*, EffectManager_CreateEffectOnTarget, (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName,void /*app::AbilitySystem*/* source));
 
-//DO_APP_FUNC(0x07061FB0, bool, BattleHitReactionManager_TryGetHitInfo, (BattleHitReactionManager* __this, ECSColliderResultProxy collider, Vector3 hitPoint, BattleHitReactionManager_HitInfo* hitInfo, MethodInfo* method));
+//DO_APP_FUNC(0x07061FB0, bool, BattleHitReactionManager_TryGetHitInfo, (BattleHitReactionManager* __this, ECSColliderResultProxy collider, Vector3 hitPoint, BattleHitReactionManager_HitInfo* hitInfo, app::MethodInfo* method));
 
-//DO_APP_FUNC(0x083DA6C0, AbilitySystem_Modifier, AbilitySystem_Modifier_NewDamage, (AbilitySystem* source, AbilitySystem* target, double value, DamageType__Enum damageType, DamageDecorateMask__Enum damageDecorateMask, AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, String* damageSourceId, AbilitySystem_Modifier_DamageVisualCoalition* damageVisualCoalition, Nullable_1_UnityEngine_Vector3_ hitPoint, bool hideMainCharHpScreenEffect, MethodInfo* method));
-//DO_APP_FUNC(0x083DAA30, AbilitySystem_Modifier, AbilitySystem_Modifier_NewDamage_1, (AbilitySystem* source, AbilitySystem* target, double value, DamageType__Enum damageType, DamageDecorateMask__Enum damageDecorateMask, AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, MethodInfo* method));
-//DO_APP_FUNC(0x083DAC20, AbilitySystem_Modifier, AbilitySystem_Modifier_NewHeal, (AbilitySystem* source, AbilitySystem* target, double value, bool showText, MethodInfo* method));
-//DO_APP_FUNC(0x083DAD30, AbilitySystem_Modifier, AbilitySystem_Modifier_NewHeal_1, (AbilitySystem* source, AbilitySystem* target, double value, bool showText, bool createBuff, MethodInfo* method));
-DO_APP_FUNC(0x07062390, void, BattleHitReactionManager_Hit, (void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, MethodInfo* method));
+//DO_APP_FUNC(0x083DA6C0, AbilitySystem_Modifier, AbilitySystem_Modifier_NewDamage, (AbilitySystem* source, AbilitySystem* target, double value, DamageType__Enum damageType, DamageDecorateMask__Enum damageDecorateMask, AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, String* damageSourceId, AbilitySystem_Modifier_DamageVisualCoalition* damageVisualCoalition, Nullable_1_UnityEngine_Vector3_ hitPoint, bool hideMainCharHpScreenEffect, app::MethodInfo* method));
+//DO_APP_FUNC(0x083DAA30, AbilitySystem_Modifier, AbilitySystem_Modifier_NewDamage_1, (AbilitySystem* source, AbilitySystem* target, double value, DamageType__Enum damageType, DamageDecorateMask__Enum damageDecorateMask, AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, app::MethodInfo* method));
+//DO_APP_FUNC(0x083DAC20, AbilitySystem_Modifier, AbilitySystem_Modifier_NewHeal, (AbilitySystem* source, AbilitySystem* target, double value, bool showText, app::MethodInfo* method));
+//DO_APP_FUNC(0x083DAD30, AbilitySystem_Modifier, AbilitySystem_Modifier_NewHeal_1, (AbilitySystem* source, AbilitySystem* target, double value, bool showText, bool createBuff, app::MethodInfo* method));
+//DO_APP_FUNC(0x07062390, void, BattleHitReactionManager_Hit, (void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method));
 
 //entity
-DO_APP_FUNC(0x07A01760, GameWorld*, GameInstance_get_world, (MethodInfo* method));
-//DO_APP_FUNC(0x07404B50, void, SceneGridContext_GetEntityList, (void/*SceneGridContext*/* __this, Vector3 pos, float radius, EEntityType__Enum entityType, List_1_Beyond_ObjectPtr_1__4* target, MethodInfo* method));
-DO_APP_FUNC(0x07201F40, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allEntities, (GameWorld* __this, MethodInfo* method));
-DO_APP_FUNC(0x07201FA0, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allCharacters, (GameWorld* __this, MethodInfo* method));
-DO_APP_FUNC(0x07202000, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allInteractives, (GameWorld*, MethodInfo* method));
-DO_APP_FUNC(0x07202060, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allEnemies, (GameWorld*, MethodInfo* method));
+DO_APP_FUNC(0x07A01760, GameWorld*, GameInstance_get_world, ());
+//DO_APP_FUNC(0x07404B50, void, SceneGridContext_GetEntityList, (void/*SceneGridContext*/* __this, Vector3 pos, float radius, EEntityType__Enum entityType, List_1_Beyond_ObjectPtr_1__4* target, app::MethodInfo* method));
+DO_APP_FUNC(0x07201F40, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allEntities, (GameWorld* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x07201FA0, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allCharacters, (GameWorld* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x07202000, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allInteractives, (GameWorld*, app::MethodInfo* method));
+DO_APP_FUNC(0x07202060, UnorderedArray_1_ObjectPtr_1_Beyond_Gameplay_Core_Entity_*, GameWorld_get_allEnemies, (GameWorld*, app::MethodInfo* method));
 
 
 DO_APP_FUNC(0x08376310, Camera*, GameUtil_get_mainCamera, ());
@@ -38,58 +41,76 @@ DO_APP_FUNC(0x083763A0, app::Entity*, GameUtil_get_mainCharacter, ());
 DO_APP_FUNC(0x08376430, Transform*, GameUtil_get_playerTrans, ());
 DO_APP_FUNC(0x083764D0, Vector3, GameUtil_get_playerPos, ());
 
-DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (app::Entity* source, app::Entity* target, MethodInfo* method));
-DO_APP_FUNC(0x083E2620, Vector3, AbilitySystemUtils_GetPosition, (void*/*AbilitySystem*/* source, MethodInfo* method));
+DO_APP_FUNC(0x083E3330, float, AbilitySystemUtils_GetDistance_3, (app::Entity* source, app::Entity* target, app::MethodInfo* method));
+DO_APP_FUNC(0x083E2620, Vector3, AbilitySystemUtils_GetPosition, (void*/*AbilitySystem*/* source, app::MethodInfo* method));
+DO_APP_FUNC(0x083ACF20, app::ObjectType__Enum, AbilitySystem_get_objectType, (void /*AbilitySystem*/* __this, app::MethodInfo* method));
 
-DO_APP_FUNC(0x00C7E650, String*, Entity_get_name, (app::Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x00C8BCD0, uint32_t, Entity_get_instanceUid, (app::Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x06692780, app::ObjectType__Enum, Entity_get_objectType, (app::Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x07357960, app::Vector3, Entity_get_position, (app::Entity* __this, MethodInfo* method));
 
-DO_APP_FUNC(0x073613C0, void/*ActorController*/*, Entity_get_actorCtrl, (app::Entity* __this, MethodInfo* method));
-DO_APP_FUNC(0x07341F00, int32_t, ActorController_MoveTo, (void/*ActorController*/* __this, Vector3 targetPosition, bool ignoreUnmovable, MethodInfo* method));
-DO_APP_FUNC(0x07343BA0, void, ActorController_TeleportToTempFix, (void/*ActorController*/* __this, Vector3 inPos, MethodInfo* method));
+DO_APP_FUNC(0x00C7E650, app::String*, Entity_get_name, (app::Entity* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x00C8BCD0, uint32_t, Entity_get_instanceUid, (app::Entity* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x06692780, app::ObjectType__Enum, Entity_get_objectType, (app::Entity* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x07357960, app::Vector3, Entity_get_position, (app::Entity* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x073616E0, void/*AbilitySystem*/*, Entity_get_abilityCom, (Entity* __this, MethodInfo* method));
+
+DO_APP_FUNC(0x073613C0, void/*ActorController*/*, Entity_get_actorCtrl, (app::Entity* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x07341F00, int32_t, ActorController_MoveTo, (void/*ActorController*/* __this, Vector3 targetPosition, bool ignoreUnmovable, app::MethodInfo* method));
+DO_APP_FUNC(0x07343BA0, void, ActorController_TeleportToTempFix, (void/*ActorController*/* __this, Vector3 inPos, app::MethodInfo* method));
 
 //pickup
-//DO_APP_FUNC(0x07F3F2F0, bool, InteractiveInstigatorControlComponent_SetPickupItem, (InteractiveInstigatorControlComponent* __this, Entity* item, bool ignoreSkillCheck, bool ignoreCheck, /*Nullable_1_UnityEngine_Vector3_*/app::Vector3 sourcePos, MethodInfo* method));
+//DO_APP_FUNC(0x07F3F2F0, bool, InteractiveInstigatorControlComponent_SetPickupItem, (InteractiveInstigatorControlComponent* __this, Entity* item, bool ignoreSkillCheck, bool ignoreCheck, /*Nullable_1_UnityEngine_Vector3_*/app::Vector3 sourcePos, app::MethodInfo* method));
 
-//DO_APP_FUNC(0x07F3FB20, void, InteractiveInstigatorControlComponent_PickUp, (InteractiveInstigatorControlComponent* __this, MethodInfo* method));
+//DO_APP_FUNC(0x07F3FB20, void, InteractiveInstigatorControlComponent_PickUp, (InteractiveInstigatorControlComponent* __this, app::MethodInfo* method));
 
 
 //tp
-//DO_APP_FUNC(0x070F2360, void, CharacterController_1_TeleportToWithFx, (CharacterController_1* __this, Vector3 pos, bool playBlinkFx, bool playDissolveFx, MethodInfo* method));
+//DO_APP_FUNC(0x070F2360, void, CharacterController_1_TeleportToWithFx, (CharacterController_1* __this, Vector3 pos, bool playBlinkFx, bool playDissolveFx, app::MethodInfo* method));
 
 //killaura
-DO_APP_FUNC(0x07205BB0, void, GameWorld_KillAllEnemies, (GameWorld* __this, MethodInfo* method));
-DO_APP_FUNC(0x07206CE0, void, GameWorld_HealAllCharacters, (GameWorld* __this, MethodInfo* method));
+DO_APP_FUNC(0x07205BB0, void, GameWorld_KillAllEnemies, (GameWorld* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x07206CE0, void, GameWorld_HealAllCharacters, (GameWorld* __this, app::MethodInfo* method));
 //skill
-//DO_APP_FUNC(0x0839EDA0, float, Skill_get_cooldown, (Skill* __this, MethodInfo* method));
-DO_APP_FUNC(0x083A3240, bool, Skill_CheckCd, (void/*Skill*/* __this, MethodInfo* method));
-DO_APP_FUNC(0x083A35C0, bool, Skill_CheckCost, (void/*Skill*/* __this, MethodInfo* method));
+//DO_APP_FUNC(0x0839EDA0, float, Skill_get_cooldown, (Skill* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x083A3240, bool, Skill_CheckCd, (void/*Skill*/* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x083A35C0, bool, Skill_CheckCost, (void/*Skill*/* __this, app::MethodInfo* method));
 
-/*DO_APP_FUNC(0x08475F00, DamagePackData, DamagePackData_Create, (DamageType__Enum damageType, DamageDecorateMask__Enum damageDecorateMask, AbilitySystem* attacker, AbilitySystem* defender, MethodInfo* method))*/;
 
 
 //skip plot
-DO_APP_FUNC(0x070C88E0, void, DialogManager__DoPlayDialog, (void/*DialogManager*/* __this, MethodInfo* method));
-DO_APP_FUNC(0x070CAA10, void, DialogManager__ExitDialog, (void/*DialogManager*/* __this, bool isSkip, MethodInfo* method));
+DO_APP_FUNC(0x070C88E0, void, DialogManager__DoPlayDialog, (void/*DialogManager*/* __this, app::MethodInfo* method));
+DO_APP_FUNC(0x070CAA10, void, DialogManager__ExitDialog, (void/*DialogManager*/* __this, bool isSkip, app::MethodInfo* method));
 
 
 //stamina
 
-DO_APP_FUNC(0x00BF5EF0, uint32_t, SC_SYNC_STAMINA_get_CurStamina, (app::SC_SYNC_STAMINA* __this, MethodInfo* method));
-//DO_APP_FUNC(0x017F6020, CharCurStamina*, Beyond_Gameplay_CharCurStaminaForMemoryPack_GetValue, (Beyond_Gameplay_CharCurStaminaForMemoryPack* __this, MethodInfo* method));
+DO_APP_FUNC(0x00BF5EF0, uint32_t, SC_SYNC_STAMINA_get_CurStamina, (app::SC_SYNC_STAMINA* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x017F6020, CharCurStamina*, Beyond_Gameplay_CharCurStaminaForMemoryPack_GetValue, (Beyond_Gameplay_CharCurStaminaForMemoryPack* __this, app::MethodInfo* method));
 
 
 //monsterAI
 
-DO_APP_FUNC(0x0812C120, void, EnemyAIBrain_SwitchAIMode, (void/*EnemyAIBrain*/* __this, app::EnemyAIModeType__Enum modeType, bool force, MethodInfo* method));
+DO_APP_FUNC(0x0812C120, void, EnemyAIBrain_SwitchAIMode, (void/*EnemyAIBrain*/* __this, app::EnemyAIModeType__Enum modeType, bool force, app::MethodInfo* method));
 
 
 //dither
-DO_APP_FUNC(0x0B6FB6E0, bool, EntityRenderAlphaDitherController_SetDitherAlpha, (void*/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, MethodInfo* method));
 
+DO_APP_FUNC(0x082BA2B0, void, EntityRenderHelper_SetDitherAlpha, (void/*EntityRenderHelper*/* __this, float ditherAlpha, int32_t handle, app::MethodInfo* method));
 
+//tp
+
+DO_APP_FUNC(0x08378A50, app::String*, GameUtil_GetCntLevelId, ());
+DO_APP_FUNC(0x08378370, int32_t, GameUtil_LevelIdStringToNum, (app::String* levelIdStr));
+
+DO_APP_FUNC(0x07A01C60, void/*GameplayNetwork*/*, GameInstance_get_gameplayNetwork, ());
+DO_APP_FUNC(0x07B6F7B0, void, GameplayNetwork_C2STeleport, (void/*GameplayNetwork*/* __this, int32_t levelId, app::TeleportReason__Enum reason, Vector3 position, Vector3 rotationEuler, app::MethodInfo* method));
+
+//DO_APP_FUNC(0x071FD4E0, app::FunctionAreaManager*, GameWorld_get_functionAreaManager, (app::GameWorld* __this,app:: MethodInfo* method));
+DO_APP_FUNC(0x07F659D0, void, GameAction_TeleportTeam, (app::Vector3 position, app::Vector3 rotation, app::MethodInfo* method));
+//DO_APP_FUNC(0x07F67270, void, GameAction_TeleportTo, (app::String* levelIdStr, app::TeleportReason__Enum reason, app::Vector3 position, app::Vector3 rotationEuler, app::MethodInfo* method));
+//DO_APP_FUNC(0x07F67710, void, GameAction_TeleportToPosition, (app::String* sceneId, app::TeleportReason__Enum reason, app::Vector3 pos, app::Quaternion rotation, app::MethodInfo* method));
+// 
+//custom Profile
+
+DO_APP_FUNC(0x036F4F40, app::String*, UtilsForLua_GetCurrentUID, ());
 //UnityEngine.UI.Text$没改
 //DO_APP_FUNC(0x022dcc00, void, Text_set_text, (app::Text* __this, app::String* value));
 //////UnityEngine.UI.Text$$set_text
@@ -107,51 +128,53 @@ DO_APP_FUNC(0x0B6FB6E0, bool, EntityRenderAlphaDitherController_SetDitherAlpha, 
 
 //System.Runtime.InteropServices.Marshal$$PtrToStringAnsi
 
-DO_APP_FUNC(0x0B2D0140, app::String*, Marshal_PtrToStringAnsi, (void* ptr, MethodInfo* method));
-
+DO_APP_FUNC(0x0B2D0140, app::String*, Marshal_PtrToStringAnsi, (void* ptr, app::MethodInfo* method));
+DO_APP_FUNC(0x06DC9580, app::String*, I18nUtils_GetText, (app::String* key));
 //playerspeed
 
-DO_APP_FUNC(0x0735E800, void/*SelfTimeScaleHandle*/*, Entity_SetSelfTimeScale, (app::Entity* __this, float selfTimeScale, MethodInfo* method));
-//DO_APP_FUNC(0x0C8093B0, float, Animator_get_timeScale, (Animator* __this, MethodInfo* method));
-//DO_APP_FUNC(0x0C809400, void, Animator_set_timeScale, (Animator* __this, float value, MethodInfo* method));
-//DO_APP_FUNC(0x0C809460, float, Animator_get_speed, (Animator* __this, MethodInfo* method));
-//DO_APP_FUNC(0x0C8094B0, void, Animator_set_speed, (Animator* __this, float value, MethodInfo* method));
+DO_APP_FUNC(0x0735E800, void/*SelfTimeScaleHandle*/*, Entity_SetSelfTimeScale, (app::Entity* __this, float selfTimeScale, app::MethodInfo* method));
+//DO_APP_FUNC(0x0C926250, void, Rigidbody_set_velocity, (void/*Rigidbody*/* __this, app::Vector3 value, MethodInfo* method));
+//DO_APP_FUNC(0x0C9261E0, app::Vector3, Rigidbody_get_velocity, (Rigidbody* __this, MethodInfo* method));
+//DO_APP_FUNC(0x0C8093B0, float, Animator_get_timeScale, (Animator* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x0C809400, void, Animator_set_timeScale, (Animator* __this, float value, app::MethodInfo* method));
+//DO_APP_FUNC(0x0C809460, float, Animator_get_speed, (Animator* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x0C8094B0, void, Animator_set_speed, (Animator* __this, float value, app::MethodInfo* method));
 
 // Game Object, Transform, Object, Component Utility
 
 //public sealed class GameObject :
 //UnityEngine.GameObject$$CreatePrimitive
-DO_APP_FUNC(0x0C87ED90, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, MethodInfo* method));
+DO_APP_FUNC(0x0C87ED90, GameObject*, GameObject_CreatePrimitive, (PrimitiveType__Enum type, app::MethodInfo* method));
 //UnityEngine.GameObject$$get_active
-DO_APP_FUNC(0x0C87FC10, bool, GameObject_get_active, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C87FC10, bool, GameObject_get_active, (GameObject* __this, app::MethodInfo* method));
 //UnityEngine.GameObject$$SetActive
-DO_APP_FUNC(0x0C87FCC0, void, GameObject_SetActive, (GameObject* __this, bool value, MethodInfo* method));//UnityEngine.GameObject$$Find
-DO_APP_FUNC(0x0C880760, GameObject*, GameObject_Find, (String* name, MethodInfo* method));
+DO_APP_FUNC(0x0C87FCC0, void, GameObject_SetActive, (GameObject* __this, bool value, app::MethodInfo* method));//UnityEngine.GameObject$$Find
+DO_APP_FUNC(0x0C880760, GameObject*, GameObject_Find, (String* name, app::MethodInfo* method));
 
-DO_APP_FUNC(0x0C87EF20, Component*, GameObject_GetComponentByName, (GameObject* __this, String* type, MethodInfo* method));
+DO_APP_FUNC(0x0C87EF20, Component*, GameObject_GetComponentByName, (GameObject* __this, String* type, app::MethodInfo* method));
 //UnityEngine.GameObject$$GetComponentByName
-DO_APP_FUNC(0x0C87F9A0, Component*, GameObject_AddComponentInternal, (GameObject* __this, String* className, MethodInfo* method));
+DO_APP_FUNC(0x0C87F9A0, Component*, GameObject_AddComponentInternal, (GameObject* __this, String* className, app::MethodInfo* method));
 //UnityEngine.GameObject$$AddComponentInternal
 
 //UnityEngine.GameObject$$get_transform
-DO_APP_FUNC(0x0C87FA60, Transform*, GameObject_get_transform, (GameObject* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C87FA60, Transform*, GameObject_get_transform, (GameObject* __this, app::MethodInfo* method));
 
 
 
-DO_APP_FUNC(0x0C893BE0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, MethodInfo* method));
+DO_APP_FUNC(0x0C893BE0, Transform*, Transform_GetChild, (Transform* __this, int32_t index, app::MethodInfo* method));
 //UnityEngine.Transform$$GetChild
 
-DO_APP_FUNC(0x0C893C40, int32_t, Transform_GetChildCount, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C893C40, int32_t, Transform_GetChildCount, (Transform* __this, app::MethodInfo* method));
 //UnityEngine.Transform$$GetChildCount
 
 //UnityEngine.Transform$$FindChild
-DO_APP_FUNC(0x0C8937D0, Transform*, Transform_FindChild, (Transform* __this, String* n, MethodInfo* method));
+DO_APP_FUNC(0x0C8937D0, Transform*, Transform_FindChild, (Transform* __this, String* n, app::MethodInfo* method));
 
 DO_APP_FUNC(0x0C88FE80, void, Transform_set_localPosition, (Transform * __this, Vector3 value, MethodInfo * method));
-DO_APP_FUNC(0x0C88FE10, Vector3, Transform_get_localPosition, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C88FE10, Vector3, Transform_get_localPosition, (Transform* __this, app::MethodInfo* method));
 
-DO_APP_FUNC(0x0C890F40, void, Transform_set_localRotation, (Transform* __this, Quaternion value, MethodInfo* method));
-DO_APP_FUNC(0x0C890ED0, Quaternion, Transform_get_localRotation, (Transform* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C890F40, void, Transform_set_localRotation, (Transform* __this, Quaternion value, app::MethodInfo* method));
+DO_APP_FUNC(0x0C890ED0, Quaternion, Transform_get_localRotation, (Transform* __this, app::MethodInfo* method));
 
 
 
@@ -186,9 +209,9 @@ DO_APP_FUNC(0x0C886120, void, Object_1_DestroyImmediate_1, (Object_1 * obj, Meth
 ////UnityEngine.Component$$get_gameObject
 DO_APP_FUNC(0x0AEB1670, GameObject *, Component_get_gameObject, (Component * __this, MethodInfo * method));
 DO_APP_FUNC(0x0C885440, Object_1 *, Object_1_Instantiate, (Object_1 * original, Vector3 position, Quaternion rotation, MethodInfo * method));
-
-
-
+DO_APP_FUNC(0x0C893500, int32_t, Transform_get_childCount, (Transform* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x0C8A0880,void*/* Scene*/, SceneManager_GetActiveScene, (MethodInfo* method));
+//DO_APP_FUNC(0x0C89FE30, void, Scene_GetRootGameObjects_1, (void* __this, List_1_UnityEngine_GameObject_* rootGameObjects, app::MethodInfo* method));
 // UnityEngine.RenderSettings$$set_fog
 DO_APP_FUNC(0x0C849530, float, RenderSettings_get_fogStartDistance, (MethodInfo * method));
 DO_APP_FUNC(0x0C849580, void, RenderSettings_set_fogStartDistance, (float value, MethodInfo * method));
@@ -247,10 +270,11 @@ DO_APP_FUNC(0x0C828E10, Vector3, Camera_WorldToScreenPoint_1, (Camera * __this, 
 DO_APP_FUNC(0x00BEE9F0, float, Mathf_Lerp, (float a, float b, float t, MethodInfo * method));
 DO_APP_FUNC(0x0C8762B0, float, Mathf_LerpUnclamped, (float a, float b, float t, MethodInfo * method));
 DO_APP_FUNC(0x02F52590, float, Mathf_LerpAngle, (float a, float b, float t, MethodInfo * method));
-DO_APP_FUNC(0x0CB82830, float, BaseInput_GetAxisRaw, (BaseInput * __this, String * axisName, MethodInfo * method));
+//DO_APP_FUNC(0x0CB82830, float, BaseInput_GetAxisRaw, (BaseInput * __this, String * axisName, MethodInfo * method));
+DO_APP_FUNC(0x0C9054A0, float, Input_1_GetAxis, (String* axisName, app::MethodInfo* method));
 
-
-
+DO_APP_FUNC(0x0C71CA40, app::String*, TMP_Text_get_text, (void/*TMP_Text*/* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C71CB20, void, TMP_Text_set_text, (void/*TMP_Text*/* __this, app::String* value, MethodInfo* method));
 
 // Protection bypass
 

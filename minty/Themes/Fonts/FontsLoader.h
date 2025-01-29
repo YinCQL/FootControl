@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <Windows.h>
 #include <optional>
@@ -6,4 +6,4 @@
 
 #include "../../api/imgui/ImGui/imgui.h"
 
-bool LoadFontFromResources(ImFontConfig font_cfg, const wchar_t* fontName, float fontSize);
+bool LoadFontFromMemory(ImFontConfig font_cfg, float size_pixels);

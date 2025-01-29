@@ -46,6 +46,12 @@
     <ClCompile Include="Functions\World\SkipPlot.cpp" />
     <ClCompile Include="Functions\visuals\AntiDither.cpp" />
     <ClCompile Include="Games\Entity.cpp" />
+    <ClCompile Include="Games\EntityManager.cpp" />
+    <ClCompile Include="Games\EntityFilter.cpp" />
+    <ClCompile Include="Functions\visuals\ESP.cpp" />
+    <ClCompile Include="Games\Event\Event.cpp" />
+    <ClCompile Include="Functions\Player\PlayerSpeed.cpp" />
+    <ClCompile Include="Functions\visuals\CustomProfile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gui\MainGUI.h" />
@@ -116,6 +122,15 @@
     <ClInclude Include="Functions\World\SkipPlot.h" />
     <ClInclude Include="Functions\visuals\AntiDither.h" />
     <ClInclude Include="Games\Entity.h" />
+    <ClInclude Include="Games\EntityManager.h" />
+    <ClInclude Include="Games\EntityFilter.h" />
+    <ClInclude Include="Functions\visuals\ESP.h" />
+    <ClInclude Include="Resources\font_data.h" />
+    <ClInclude Include="Resources\language_data.h" />
+    <ClInclude Include="Games\Event\Event.h" />
+    <ClInclude Include="Resources\entity_map.h" />
+    <ClInclude Include="Functions\Player\PlayerSpeed.h" />
+    <ClInclude Include="Functions\visuals\CustomProfile.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="il2cpp\detours.lib" />

@@ -20,7 +20,7 @@ namespace cheat {
     }
 
     void Stamina::GUI() {
-        if (ConfigCheckbox(_("Stamina_TITLE"), f_Enabled, _("Stamina_DESCRIPTION"))) {
+        if (ConfigCheckbox(_("Stamina"), f_Enabled, _("Stamina_DESCRIPTION"))) {
             //ImGui::Indent();
             //f_Hotkey.Draw();
             //ImGui::Unindent();
@@ -40,7 +40,7 @@ namespace cheat {
     }
 
     std::string Stamina::getModule() {
-        return _("MODULE_PLAYER");
+        return _("Player");
     }
 
 

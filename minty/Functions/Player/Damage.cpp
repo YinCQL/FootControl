@@ -1,8 +1,8 @@
 ﻿#include "Damage.h"
 
 namespace cheat {
-    static void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method);
-
+   // static void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method);
+    //static void/*app::BattleNormalEffect*/* EffectManager_CreateEffectOnTarget_Hook (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source);
 
     Damage::Damage() {
         f_GodMode = config::getValue("functions:Damage", "GodMode", false);
@@ -11,8 +11,8 @@ namespace cheat {
 
         f_Hotkey = Hotkey("functions:Damage");
 
-        HookManager::install(app::BattleHitReactionManager_Hit, BattleHitReactionManager_Hit_Hook);
-
+        //HookManager::install(app::BattleHitReactionManager_Hit, BattleHitReactionManager_Hit_Hook);
+      //  HookManager::install(app::EffectManager_CreateEffectOnTarget, EffectManager_CreateEffectOnTarget_Hook);
     }
 
     Damage& Damage::getInstance() {
@@ -48,36 +48,38 @@ namespace cheat {
     }
 
     std::string Damage::getModule() {
-        return _("MODULE_PLAYER");
+        return _("Player");
     }
 
-    //void VCHumanoidMove_NotifyLandVelocity_Hook(app::VCHumanoidMove* __this, app::Vector3 velocity,
-    //    float reachMaxDownVelocityTime) {
-    //    auto& Damage = Damage::getInstance();
 
-    //    if (Damage.f_Enabled && -velocity.y > 13) {
-    //        float randAdd = (float)(std::rand() % 1000) / 1000;
-    //        velocity.y = -8 - randAdd;
-    //        reachMaxDownVelocityTime = 0;
-    //    }
-    //    CALL_ORIGIN(VCHumanoidMove_NotifyLandVelocity_Hook, __this, velocity, reachMaxDownVelocityTime);
+    //void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method) {
+    //    LOG_DEBUG("BattleHitReactionManager_Hit_Hook hitValue:%f ", hitValue);
+    //    LOG_DEBUG("BattleHitReactionManager_Hit_Hook attacker:%s ", il2cppi_to_string(attacker->fields._name_k__BackingField).c_str());
+
+    //    return;
+    ////    auto& Damage = Damage::getInstance();
+    ////    auto attackerenum= app::Entity_get_objectType(attacker, nullptr);
+    ////    if (Damage.f_GodMode&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
+    ////        return;
+    ////       // hitValue = 0;
+    ////    }
+    ////    if (Damage.f_HitMultiplier&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Character) {
+    ////        //hitValue *= Damage.f_HitMultiplier_Value;
+    ////        for (int i = 0; i < Damage.f_HitMultiplier_Value.getValue(); i++) {
+    ////            CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
+    ////        }
+    ////            
+    ////        return;
+    ////    }
+    ////    return CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
     //}
-    void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method) {
-        auto& Damage = Damage::getInstance();
-        auto attackerenum= app::Entity_get_objectType(attacker, nullptr);
-        if (Damage.f_GodMode&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
-            return;
-           // hitValue = 0;
-        }
-        if (Damage.f_HitMultiplier&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Character) {
-            //hitValue *= Damage.f_HitMultiplier_Value;
-            for (int i = 0; i < Damage.f_HitMultiplier_Value.getValue(); i++) {
-                CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
-            }
-                
-            return;
-        }
-        return CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
-    }
-
+    //void/*app::BattleNormalEffect*/* EffectManager_CreateEffectOnTarget_Hook(void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source) {
+    //
+    //    auto& Damage = Damage::getInstance();
+    //    auto sourceAb = app::AbilitySystem_get_objectType(source,nullptr);
+    //    if( Damage.f_GodMode.getValue() && sourceAb == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
+    //        return nullptr;
+    //    }
+    //    return CALL_ORIGIN(EffectManager_CreateEffectOnTarget_Hook, __this, effectCfg, target, dir, timeScaleSource, overrideName, source);
+    //}
 }

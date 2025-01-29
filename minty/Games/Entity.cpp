@@ -1,8 +1,9 @@
 ﻿#include "Entity.h"
 #include <string>
+#include "../Functions/FunctionIncludes.h"
 
-
-// 构造函数
+namespace cheat {
+	// 构造函数
 Entity::Entity(app::Entity* entity)
     : m_entity(entity) {
 }
@@ -54,4 +55,5 @@ void Entity::TeleportToTempFix(app::Vector3 position) {
     }
     auto actor=app::Entity_get_actorCtrl(m_entity, nullptr);
     app::ActorController_TeleportToTempFix(actor, position, nullptr);
+}
 }

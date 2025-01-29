@@ -42,7 +42,7 @@ namespace cheat {
     }
 
     std::string SkipPlot::getModule() {
-        return _("MODULE_WORLD");
+        return _("World");
     }
 
 

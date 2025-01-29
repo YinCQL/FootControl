@@ -11,10 +11,11 @@
 
 DWORD WINAPI MainThread(LPVOID lpReserved) {
     AllocConsole();
-    freopen("CONIN$", "r", stdin);
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
-
+    FILE* Dummy;
+    freopen_s(&Dummy, "CONOUT$", "w", stdout);
+    freopen_s(&Dummy, "CONIN$", "w", stderr);
+    SetConsoleTitle(TEXT("FootControl Console"));
+    SetConsoleOutputCP(CP_UTF8);
     LOG_INFO("Starting...");
 
     while (!FindWindowA("UnityWndClass", nullptr))

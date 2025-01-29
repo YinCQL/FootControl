@@ -6,7 +6,7 @@
 
 #define R_LANGUAGES			301
 #define R_FONT_CN                     302
-#define R_FONT_RU                     303
+
 
 // Next default values for new objects
 // 

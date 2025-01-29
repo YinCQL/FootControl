@@ -5,7 +5,7 @@
 
 #include "../functions/player/CoolDown.h"
 #include "../functions/player/Stamina.h"
-
+#include "../functions/player/PlayerSpeed.h"
 
 #include "../functions/world/DumbMonster.h"
 #include "../functions/world/SkipPlot.h"
@@ -13,12 +13,13 @@
 
 
 #include "../functions/visuals/AntiDither.h"
-//#include "../functions/visuals/NoFog.h"
+#include "../functions/visuals/ESP.h"
+#include "../functions/visuals/CustomProfile.h"
 //#include "../functions/visuals/HideUI.h"
 //#include "../functions/visuals/browser.h"
 
 #include "../functions/visuals/UnlockFPS.h"
-//#include "../functions/visuals/freecamera.h"
+#include "../functions/visuals/freecamera.h"
 
 #include "../functions/debug/Debug.h"
 
@@ -27,9 +28,11 @@ std::vector<std::string> ModuleOrder = {
 	_("About"),
 	_("Player"),
 	_("World"),
+
 	_("Visuals"),
+			_("ESP"),
 	_("Settings"),
-	_("Debug")
+	"Debug"
 
 };
 
@@ -40,6 +43,7 @@ void Init() {
 	INIT_FUNC(Damage);
 	INIT_FUNC(CoolDown);
 	INIT_FUNC(Stamina);
+    INIT_FUNC(PlayerSpeed);
 	
 	//world
 	INIT_FUNC(SetTimeScale);
@@ -56,8 +60,9 @@ void Init() {
     INIT_FUNC(AntiDither);
 	//INIT_FUNC(Browser);
 	//INIT_FUNC(NoFog);
-	//INIT_FUNC(FreeCamera);
-
+	INIT_FUNC(FreeCamera);
+    INIT_FUNC(CustomProfile);
+	INIT_FUNC(ESP);
 		//settings
 	INIT_FUNC(Settings);
 	//debug
@@ -81,7 +86,7 @@ void Status() {
 
 	if (!settings.f_StatusMove.getValue())
 		flags |= ImGuiWindowFlags_NoMove;
-
+	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[fontindex_menu]);
 	ImGui::Begin(_("Status"), nullptr, flags);
 
 	auto windowWidth = ImGui::GetWindowSize().x;
@@ -94,6 +99,7 @@ void Status() {
 	ImGui::Separator();
 	for (auto& feature : functions)
 		feature->Status();
+	ImGui::PopFont();
 	ImGui::End();
 }
 

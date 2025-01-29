@@ -12,7 +12,7 @@ namespace cheat {
 		f_ShowRpc = config::getValue("functions:Settings", "showRpc", true);
 		f_ShowConsole = config::getValue("functions:Settings", "showConsole", true);
 		f_InitDelay = config::getValue("functions:Settings", "initDelay", 15000);
-		f_Language = config::getValue("functions:Settings", "language", 0);
+		f_Language = config::getValue("functions:Settings", "language", 1);
 		//f_MobileMode = config::getValue("functions:Settings", "mobileMode", false);
 		f_StartupArguments = config::getValue<std::string>("functions:Settings", "startupArguments", "");
 		f_AnimationDuration = config::getValue("functions:Settings", "animationDuration", 0.2f);
@@ -29,11 +29,12 @@ namespace cheat {
 		return instance;
 	}
 
-	const char* languages[] = { "English", "Russian", "Chinese", "Indonesian" };
+	//const char* languages[] = { "English", "Russian", "Chinese", "Indonesian" };
 
 	void Settings::GUI() {
-		//ImGui::SeparatorText(_("SETTINGS_LANGUAGE"));
-		//ConfigComboLanguage(f_Language);
+
+		ImGui::SeparatorText(_("SETTINGS_LANGUAGE"));
+		ConfigComboLanguage(f_Language);
 
 		ImGui::SeparatorText(_("SETTINGS_GENERAL"));
 
@@ -61,7 +62,7 @@ namespace cheat {
 		}
 
 		ConfigCheckbox(_("SHOW_FPS_TITLE"), f_ShowFps, _("SHOW_FPS_DESCRIPTION"));
-		ConfigCheckbox(_("SHOW_RPC_TITLE"), f_ShowRpc, _("SHOW_RPC_DESCRIPTION"));
+		//ConfigCheckbox(_("SHOW_RPC_TITLE"), f_ShowRpc, _("SHOW_RPC_DESCRIPTION"));
 
 		ConfigSliderInt(_("INIT_DELAY_TITLE"), f_InitDelay, 0, 60000, _("INIT_DELAY_DESCRIPTION"));
 
@@ -84,25 +85,25 @@ namespace cheat {
 
 		static int styleIndex = 1;
 
-		if (ImGui::RadioButton(_("STYLE_COZY_TITLE"), &styleIndex, 1))
-			setStyle(1);
+		//if (ImGui::RadioButton(_("STYLE_COZY_TITLE"), &styleIndex, 1))
+		//	setStyle(1);
 
-		if (ImGui::RadioButton(_("STYLE_COZY_SQUARED_TITLE"), &styleIndex, 2))
-			setStyle(2);
+		//if (ImGui::RadioButton(_("STYLE_COZY_SQUARED_TITLE"), &styleIndex, 2))
+		//	setStyle(2);
 
-		ImGui::SeparatorText(_("SETTINGS_FONT"));
+		//ImGui::SeparatorText(_("SETTINGS_FONT"));
 
-		static int fontIndex = 1;
+		//static int fontIndex = 1;
 
-		if (ImGui::RadioButton(_("FONT_NORMAL_TITLE"), &fontIndex, 1))
-			setFont(1);
+		//if (ImGui::RadioButton(_("FONT_NORMAL_TITLE"), &fontIndex, 1))
+		//	setFont(1);
 
-		if (ImGui::RadioButton(_("FONT_BOLD_TITLE"), &fontIndex, 2))
-			setFont(2);
+		//if (ImGui::RadioButton(_("FONT_BOLD_TITLE"), &fontIndex, 2))
+		//	setFont(2);
 
-		ImGui::SeparatorText(_("SETTINGS_CUSTOMIZE"));
-		ConfigSliderFloat(_("DURATION_ANIMATION_TITLE"), f_AnimationDuration, 0, 5.0f, _("DURATION_ANIMATION_DESCRIPTION"));
-		ImGui::Checkbox(_("SHOW_STYLE_EDITOR_TITLE"), &show_style_editor);
+		//ImGui::SeparatorText(_("SETTINGS_CUSTOMIZE"));
+		//ConfigSliderFloat(_("DURATION_ANIMATION_TITLE"), f_AnimationDuration, 0, 5.0f, _("DURATION_ANIMATION_DESCRIPTION"));
+		//ImGui::Checkbox(_("SHOW_STYLE_EDITOR_TITLE"), &show_style_editor);
 	}
 
 	void Settings::Outer() {
@@ -122,11 +123,11 @@ namespace cheat {
 		if (f_ShowFps.getValue())
 			DrawFPS();
 
-		if (show_style_editor) {
-			ImGui::Begin(_("STYLE_EDITOR_TITLE"), &show_style_editor);
-			ImGui::ShowStyleEditor();
-			ImGui::End();
-		}
+		//if (show_style_editor) {
+		//	ImGui::Begin(_("STYLE_EDITOR_TITLE"), &show_style_editor);
+		//	ImGui::ShowStyleEditor();
+		//	ImGui::End();
+		//}
 	}
 
 	std::string Settings::getModule() {

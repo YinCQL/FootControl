@@ -2,7 +2,6 @@
 
 #include <Windows.h>
 
-#include "../resource.h"
 #include "../includes.h"
 #include "../api/json/json.hpp"
 

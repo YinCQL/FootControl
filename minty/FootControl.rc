@@ -1,4 +1,4 @@
-// Microsoft Visual C++ generated resource script.
+ï»¿// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Ðóññêè?(Ðîññ?) resources
+// ç•œè€¨è§‡?(è“„è€¨?) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
 LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
@@ -50,11 +50,11 @@ END
 // RCDATA
 //
 
-R_FONT_CN             RCDATA                  "themes\\fonts\\MiSans-Regular.ttf"
-
-R_FONT_RU             RCDATA                  "themes\\fonts\\russia.ttf"
-
-R_LANGUAGES             RCDATA                  "resources\\translations.json"
+//R_FONT_CN             RCDATA                  "themes\\fonts\\MiSans-Regular.ttf"
+//
+//R_FONT_RU             RCDATA                  "themes\\fonts\\russia.ttf"
+//
+//R_LANGUAGES             RCDATA                  "resources\\translations.json"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -62,9 +62,9 @@ R_LANGUAGES             RCDATA                  "resources\\translations.json"
 // PNG
 //
 
-IDB_PNG1                PNG                     "gato.png"
+//IDB_PNG1                PNG                     "gato.png"
 
-#endif    // Ðóññêè?(Ðîññ?) resources
+#endif    // ç•œè€¨è§‡?(è“„è€¨?) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

@@ -1,8 +1,11 @@
 ﻿#include "About.h"
 
 namespace cheat {
-	About::About() {
 
+	//	DO_APP_FUNC(0x0337A7F0, void, GameStartState__OnEnterMainGame, (void/*GameStartState*/* __this, MethodInfo * method));
+	static void GameStartState__OnEnterMainGame_Hook(void/*GameStartState*/* __this, app::MethodInfo* method);
+	About::About() {
+		HookManager::install(app::GameStartState__OnEnterMainGame, GameStartState__OnEnterMainGame_Hook);
 	}
 	void About::GUI() {
 		ImGui::SeparatorText(_("About"));
@@ -39,5 +42,13 @@ namespace cheat {
 	About& About::getInstance() {
 		static About instance;
 		return instance;
+	}
+
+	void GameStartState__OnEnterMainGame_Hook(void/*GameStartState*/* __this, app::MethodInfo* method) {
+	
+		CALL_ORIGIN(GameStartState__OnEnterMainGame_Hook, __this, method);
+	
+		IsInWorld = true;
+		return;
 	}
 }

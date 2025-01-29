@@ -1,5 +1,8 @@
 ﻿#include "GuiUtils.h"
-
+#include "Logger.h"
+#include "../GUI/Sections.h"
+#include "../GUI/Translations.h"
+#include "../Themes/Themes.h"
 void HelpMarker(const char* description) {
 	ImGui::TextDisabled("(?)");
 
@@ -151,18 +154,33 @@ bool BeginGroupPanel(const char* label, bool node, const ImVec2& size)
 	_groupPanelStack.push_back({ leftRect, rightRect, false });
 	return true;
 }
-
-const char* languages[] = { "English", "Russian", "Chinese",
-	"Indonesian/Not supported at this time", "Romanian"
-};
+const char* languages[] = { "English", "简体中文" };
 
 void ConfigComboLanguage(ConfigField<int>& f_Language) {
 	int currentLanguage = f_Language.getValue();
 
+	ImGui::PushFont(ImGui::GetIO().Fonts->Fonts[fontindex_menu]);
+	ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(16.0f, 9.0f));
+	ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(2.0f, 8.0f));
+
 	if (ImGui::Combo(_("LANGUAGE_SELECT"), &currentLanguage, languages, IM_ARRAYSIZE(languages))) {
 		f_Language.setValue(currentLanguage);
 		config::setValue(f_Language, currentLanguage);
+
+		ModuleOrder = {
+	_("About"),
+	_("Player"),
+	_("World"),
+
+	_("Visuals"),
+			_("ESP"),
+	_("Settings"),
+	"Debug",
+		};
 	}
+
+	ImGui::PopFont();
+	ImGui::PopStyleVar(2);
 }
 
 void EndGroupPanel() {

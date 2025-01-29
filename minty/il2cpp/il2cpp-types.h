@@ -3354,26 +3354,14 @@ struct ObjectPtr_1_Beyond_Gameplay_Core_Entity_ {
     uint32_t cachedUid;
 };
 
-//struct ObjectPtr_1_Beyond_Gameplay_Core_Entity___Boxed {
-//    struct ObjectPtr_1_Beyond_Gameplay_Core_Entity___Class* klass;
-//    MonitorData* monitor;
-//    struct ObjectPtr_1_Beyond_Gameplay_Core_Entity_ fields;
-//};
-//
-//struct EntityPtr {
-//    uint64_t logicId;
-//    struct ObjectPtr_1_Beyond_Gameplay_Core_Entity_ _objectPtr_k__BackingField;
-//};
+
+struct EntityPtr {
+    uint64_t logicId;
+    struct ObjectPtr_1_Beyond_Gameplay_Core_Entity_ _objectPtr_k__BackingField;
+};
 
 
-//struct ObjectPtr_1_Beyond_Gameplay_Core_Entity___VTable {
-//    VirtualInvokeData Equals;
-//    VirtualInvokeData Finalize;
-//    VirtualInvokeData GetHashCode;
-//    VirtualInvokeData ToString;
-//    VirtualInvokeData CompareTo;
-//    VirtualInvokeData Equals_1;
-//};
+
 
 struct ObjectPtr_1_Beyond_Gameplay_Core_Entity___StaticFields {
 };
@@ -3541,5 +3529,172 @@ struct List_1_Beyond_ObjectPtr_1__4 {
     struct List_1_Beyond_ObjectPtr_1__4__Class* klass;
     MonitorData* monitor;
     struct List_1_Beyond_ObjectPtr_1__4__Fields fields;
+};
+
+
+struct __declspec(align(8)) List_1_UnityEngine_GameObject___Fields {
+    struct GameObject__Array* _items;
+    int32_t _size;
+    int32_t _version;
+    struct Object* _syncRoot;
+};
+
+struct List_1_UnityEngine_GameObject_ {
+    struct List_1_UnityEngine_GameObject___Class* klass;
+    MonitorData* monitor;
+    struct List_1_UnityEngine_GameObject___Fields fields;
+};
+
+struct GameObject__Array {
+    struct GameObject__Array__Class* klass;
+    MonitorData* monitor;
+    Il2CppArrayBounds* bounds;
+    il2cpp_array_size_t max_length;
+    struct GameObject* vector[32];
+};
+
+
+enum GameState__Enum {
+    GameState__Enum_None = -1,
+    GameState__Enum_Init = 0x00000000,
+    GameState__Enum_Login = 0x0000000a,
+    GameState__Enum_Preload = 0x00000014,
+    GameState__Enum_Start = 0x0000001e,
+    GameState__Enum_Main = 0x00000028,
+    GameState__Enum_Quit = 0x00000032,
+};
+
+enum TeleportReason__Enum {
+    TeleportReason__Enum_Map = 0x00000000,
+    TeleportReason__Enum_Action = 0x00000001,
+    TeleportReason__Enum_Repatriate = 0x00000002,
+};
+
+
+//struct __declspec(align(8)) BaseManager__Fields {
+//    bool _isInitialized_k__BackingField;
+//};
+//
+//struct BaseManager {
+//    struct BaseManager__Class* klass;
+//    MonitorData* monitor;
+//    struct BaseManager__Fields fields;
+//};
+//
+//struct BaseTickManager__Fields {
+//    struct BaseManager__Fields _;
+//    int32_t m_tickOption;
+//    float m_tickInterval;
+//    struct TickFunction* m_mainTick;
+//    bool m_ignoreGlobalTimeScale;
+//    bool _isPaused_k__BackingField;
+//    struct TickFunction* _fixedTickFunction_k__BackingField;
+//    struct TickFunction* _frameTickFunction_k__BackingField;
+//    struct TickFunction* _postFrameTickFunction_k__BackingField;
+//    struct TickFunction* _lateTickFunction_k__BackingField;
+//    struct TickFunction* _tailTickFunction_k__BackingField;
+//    struct TickFunction* _tailLateTickFunction_k__BackingField;
+//};
+//struct BaseTickManager {
+//    struct BaseTickManager__Class* klass;
+//    MonitorData* monitor;
+//    struct BaseTickManager__Fields fields;
+//};
+struct BaseWorldManager__Fields {
+    //struct BaseTickManager__Fields _;
+};
+
+struct FunctionAreaManager__Fields {
+    struct BaseWorldManager__Fields _;
+    bool m_shouldRebuild;
+    float m_lastSaveTime;
+    bool m_inFastSaveMode;
+    struct app::Vector3 m_lastPos;
+    struct app::Vector3 m_currentPos;
+    struct app::Vector3 m_currentRot;
+    struct app::Vector3 m_currentTopPos;
+    struct app::Vector3 m_centerPos;
+    struct app::Vector3 m_lastSavedPos;
+    bool m_currentIsGrounded;
+    struct List_1_Beyond_Gameplay_ThreeDimRange_* m_abRanges;
+    struct List_1_Beyond_Gameplay_LevelFunctionAreaData_FunctionAreaBaseData_* m_baseDatas;
+    struct List_1_System_Int32_* m_intListCache;
+    struct HashSet_1_System_Int32_* m_activeIds;
+    struct Dictionary_2_System_Int32_System_ValueTuple_2_* m_levelRange;
+    struct SpaceTreeNotUseArray_2_System_Int32_ThreeDimRange_* m_oct;
+    struct Dictionary_2_System_Int32_Beyond_Gameplay_LevelFunctionAreaData_* m_levelAreaMap;
+    struct Dictionary_2_System_UInt64_System_Int32_* m_withIdFunctionAreaMap;
+    struct Dictionary_2_System_UInt64_System_Boolean_* m_inGameSetAreaState;
+    struct Dictionary_2_Beyond_Gameplay_LevelFunctionAreaData_FunctionAreaBaseData_Beyond_Gameplay_FunctionAreaPolyData_* m_polyDataMap;
+    struct HashSet_1_System_Int32_* m_currentSet;
+    struct Dictionary_2_System_Int32_System_Single_* m_enterTimeMap;
+    struct Dictionary_2_Beyond_Gameplay_EFunctionAreaType_System_Int32_* m_areaInCount;
+    struct FunctionDealer* m_areaFunctionDealer;
+    int32_t m_currentLevelId;
+    bool m_isInStoryMode;
+    struct FunctionAreaMissionConditionController* m_missionConditionController;
+    uint32_t m_leaderMoveTagHandle;
+    float m_cameraVolumeTimer;
+    bool m_cameraVolumeLeaveBlendOut;
+    bool m_cameraVolumeReachedDuration;
+    struct LevelCameraController* m_lookAtCameraController;
+    struct CameraControlState* m_lookAtCameraControlState;
+    float m_lookAtCameraTimer;
+    float m_lookAtCameraDuration;
+    struct Dictionary_2_System_Int32_Beyond_Gameplay_View_CameraControlState_* m_addedCameraControlStates;
+    struct LevelCameraController* m_ambienceCameraController;
+    struct CameraControlState* m_ambienceCameraControlState;
+    float m_ambienceCameraTimer;
+    float m_ambienceCameraDuration;
+    bool m_radioTriggerZoneEnter;
+    struct ThreeDimRange* m_angeCache;
+    struct HashSet_1_System_UInt64_* m_inRepatriateTeammate;
+    struct List_1_System_UInt64_* m_ulongListCache;
+    struct HashSet_1_System_UInt64_* m_cacheSet;
+    int32_t m_teamMateCnt;
+    struct List_1_Beyond_Gameplay_ThreeDimRange_* m_abRangesSwaps;
+    struct List_1_Beyond_Gameplay_LevelFunctionAreaData_FunctionAreaBaseData_* m_baseDatasSwaps;
+    struct HashSet_1_System_Int32_* m_activeIdsSwap;
+    struct Dictionary_2_System_Int32_System_ValueTuple_2_* m_levelRangeSwap;
+    struct List_1_System_Int32_* m_cacheList;
+};
+
+struct FunctionAreaManager {
+    struct FunctionAreaManager__Class* klass;
+    MonitorData* monitor;
+    struct FunctionAreaManager__Fields fields;
+};
+struct RaycastResult {
+    struct GameObject* m_GameObject;
+    struct BaseRaycaster* module;
+    float distance;
+    float index;
+    int32_t depth;
+    int32_t sortingLayer;
+    int32_t sortingOrder;
+    struct Vector3 worldPosition;
+    struct Vector3 worldNormal;
+    struct Vector2 screenPosition;
+    int32_t displayIndex;
+};
+struct RaycastResult__Array {
+    struct RaycastResult__Array__Class* klass;
+    MonitorData* monitor;
+    Il2CppArrayBounds* bounds;
+    il2cpp_array_size_t max_length;
+    struct RaycastResult vector[32];
+};
+
+struct __declspec(align(8)) List_1_UnityEngine_EventSystems_RaycastResult___Fields {
+    struct RaycastResult__Array* _items;
+    int32_t _size;
+    int32_t _version;
+    struct Object* _syncRoot;
+};
+
+struct List_1_UnityEngine_EventSystems_RaycastResult_ {
+    struct List_1_UnityEngine_EventSystems_RaycastResult___Class* klass;
+    MonitorData* monitor;
+    struct List_1_UnityEngine_EventSystems_RaycastResult___Fields fields;
 };
 #endif // IL2CPP_TYPES_H

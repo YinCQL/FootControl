@@ -13,6 +13,7 @@ namespace cheat {
 	ConfigField<int> f_Resolutionwidth;
 	ConfigField<int> f_Resolutionheight;
 	ConfigField<bool> f_Resolutionfullscreen;
+	ConfigField<bool> f_UIInspector;
 
 	void GUI() override;
 	void Outer() override;

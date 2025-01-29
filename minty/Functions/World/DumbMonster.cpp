@@ -41,7 +41,7 @@ namespace cheat {
     }
 
     std::string DumbMonster::getModule() {
-        return _("MODULE_WORLD");
+        return _("World");
     }
 
 

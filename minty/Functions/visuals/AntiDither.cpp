@@ -1,14 +1,17 @@
 ﻿#include "AntiDither.h"
-//bool, EntityRenderAlphaDitherController_SetDitherAlpha, (void*/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, MethodInfo* method));
-namespace cheat {
-	static bool EntityRenderAlphaDitherController_SetDitherAlpha(void*/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, app::MethodInfo* method);
 
+namespace cheat {
+	//static bool EntityRenderAlphaDitherController_SetDitherAlpha_Hook(void/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, app::MethodInfo* method);
+	//static void EntityRenderAlphaDitherController__SetMaterialDitherAlpha_Hook(void/*EntityRenderAlphaDitherController*/* __this, float value, app::MethodInfo* method);
+	static void EntityRenderHelper_SetDitherAlpha_Hook(void/*EntityRenderHelper*/* __this, float ditherAlpha, int32_t handle, app::MethodInfo* method);
 	AntiDither::AntiDither() : Function() {
 		f_Enabled = config::getValue("functions:AntiDither", "enabled", false);
 
 		f_Hotkey = Hotkey("functions:AntiDither");
 
-		HookManager::install(app::EntityRenderAlphaDitherController_SetDitherAlpha, EntityRenderAlphaDitherController_SetDitherAlpha);
+		//HookManager::install(app::EntityRenderAlphaDitherController_SetDitherAlpha, EntityRenderAlphaDitherController_SetDitherAlpha_Hook);
+  //      HookManager::install(app::EntityRenderAlphaDitherController__SetMaterialDitherAlpha, EntityRenderAlphaDitherController__SetMaterialDitherAlpha_Hook);
+        HookManager::install(app::EntityRenderHelper_SetDitherAlpha, EntityRenderHelper_SetDitherAlpha_Hook);
 	}
 
 	AntiDither& AntiDither::getInstance() {
@@ -40,26 +43,33 @@ namespace cheat {
 		return _("Visuals");
 	}
 
-	static bool _prevEnabledState = false;
 
-	//void onUpdate_AntiDither(app::UnityEngine_EventSystems_EventSystem_o* __this, app::MethodInfo* method) {
-	//	auto& AntiDither = AntiDither::getInstance();
+	//bool EntityRenderAlphaDitherController_SetDitherAlpha_Hook(void/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, app::MethodInfo* method) {
+	//	auto& AntiDither = cheat::AntiDither::getInstance();
 	//	bool enabled = AntiDither.f_Enabled.getValue();
+	//	LOG_DEBUG("AntiDither0: %f", alpha);
+	//	if (enabled)
+	//		return CALL_ORIGIN(EntityRenderAlphaDitherController_SetDitherAlpha_Hook, __this, 1.0f, handle, method);
 
-	//	if (_prevEnabledState != enabled) {
-	//		app::RenderSettings_set_fog(!enabled);
-	//		_prevEnabledState = enabled;
-	//	}
-	//	CALL_ORIGIN(onUpdate_AntiDither, __this, method);
+	//	return CALL_ORIGIN(EntityRenderAlphaDitherController_SetDitherAlpha_Hook, __this, alpha, handle, method);
+	//}
+	//void EntityRenderAlphaDitherController__SetMaterialDitherAlpha_Hook(void/*EntityRenderAlphaDitherController*/* __this, float value, app::MethodInfo* method) {
+	//	auto& AntiDither = cheat::AntiDither::getInstance();
+	//	bool enabled = AntiDither.f_Enabled.getValue();
+	//	LOG_DEBUG("AntiDither1: %f", value);
+	//	if (enabled)
+	//		return CALL_ORIGIN(EntityRenderAlphaDitherController__SetMaterialDitherAlpha_Hook, __this, 1.0f,  method);
+
+	//	return CALL_ORIGIN(EntityRenderAlphaDitherController__SetMaterialDitherAlpha_Hook, __this, value,  method);
 	//}
 
-	bool EntityRenderAlphaDitherController_SetDitherAlpha(void*/*EntityRenderAlphaDitherController*/* __this, float alpha, int32_t handle, app::MethodInfo* method) {
+    void EntityRenderHelper_SetDitherAlpha_Hook(void/*EntityRenderHelper*/* __this, float ditherAlpha, int32_t handle, app::MethodInfo* method) {
 		auto& AntiDither = cheat::AntiDither::getInstance();
 		bool enabled = AntiDither.f_Enabled.getValue();
-
+		//LOG_DEBUG("AntiDither2: %f", ditherAlpha);
 		if (enabled)
-			return CALL_ORIGIN(EntityRenderAlphaDitherController_SetDitherAlpha, __this, 1.0f, handle, method);
+			return CALL_ORIGIN(EntityRenderHelper_SetDitherAlpha_Hook, __this, 1.0f, handle, method);
 
-		return CALL_ORIGIN(EntityRenderAlphaDitherController_SetDitherAlpha, __this, alpha, handle, method);
-	}
+		return CALL_ORIGIN(EntityRenderHelper_SetDitherAlpha_Hook, __this, ditherAlpha, handle, method);
+    }
 }

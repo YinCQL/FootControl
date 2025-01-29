@@ -24,14 +24,17 @@ void gui::InitImGui(HWND window, ID3D11Device* pDevice, ID3D11DeviceContext* pCo
 
     ImGui::GetIO().ImeWindowHandle = window;
 
-    ImFontConfig font_cfg;
-    font_cfg.FontDataOwnedByAtlas = false;
-    ImGui::GetIO().Fonts->AddFontFromMemoryTTF((void*)tahoma, sizeof(tahoma), 17.f, &font_cfg);
+    //ImFontConfig font_cfg;
+    //font_cfg.FontDataOwnedByAtlas = false;
+    io.Fonts->AddFontDefault();
+    ImFontConfig myFontconfig;
     // init notify
     //MergeIconsWithLatestFont(16.f, false);
-    LoadThemes();
+   // LoadThemes();
+   setTheme(1);
+    setStyle(1);
     //LoadFonts();
-    LoadFontFromResources(font_cfg, MAKEINTRESOURCEW(R_FONT_CN), 20.f);
+    LoadFontFromMemory(myFontconfig, 16.f);
     Init();
 }
 

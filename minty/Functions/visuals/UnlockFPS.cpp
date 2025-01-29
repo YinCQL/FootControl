@@ -19,7 +19,7 @@ namespace cheat {
 	}
 
 	void UnlockFPS::GUI() {
-		ImGui::SeparatorText(_("UnlockFPS"));
+		//ImGui::SeparatorText(_("UnlockFPS"));
 		ConfigCheckbox(_("Unlock FPS"), f_Enabled, _("Unlocks higher framerate."));
 		ImGui::SameLine();
 		f_Hotkey.Draw();

@@ -1,7 +1,7 @@
 ﻿#include "FreeCamera.h"
 
 namespace cheat {
-    static void onGameUpdateFreeCamera(app::EventSystem* __this, app::MethodInfo* method);
+    static void onGameUpdateFreeCamera(void* __this);
 
     app::GameObject* freeCam = nullptr;
     app::GameObject* mainCam = nullptr;
@@ -9,8 +9,8 @@ namespace cheat {
     //app::Object_1* mainCamObj = nullptr;
 
     app::Transform* freeCam_Transform;
-    app::Component_1* freeCam_Camera;
-    app::Component_1* mainCam_Camera;
+    app::Component* freeCam_Camera;
+    app::Component* mainCam_Camera;
     app::Vector3 targetPosition;
     app::Vector3 smoothPosition;
     float smoothFOV = 0;
@@ -46,7 +46,7 @@ namespace cheat {
 
         f_Hotkey = Hotkey("functions:FreeCamera");
 
-        HookManager::install(app::EventSystem_Update, onGameUpdateFreeCamera);
+        HookManager::install(app::GameApp_Update, onGameUpdateFreeCamera);
     }
 
     FreeCamera& FreeCamera::getInstance() {
@@ -56,9 +56,9 @@ namespace cheat {
 
     void FreeCamera::GUI() {
         if (ConfigCheckbox(_("freecamera"), f_Enabled, _("freecamera"))) {
-            ImGui::SameLine();
-            f_Hotkey.Draw();
-            ImGui::Indent();
+            //ImGui::SameLine();
+            //f_Hotkey.Draw();
+            //ImGui::Indent();
             //ConfigCheckbox(_("FreezeAnimation"), f_FreezeAnimation, _("FreezeAnimation"));
             //ConfigCheckbox(_("Make Character invisible"), f_SetAvatarInvisible, _("Make Character invisible"));
             // ConfigCheckbox(_("Block User Input"), f_BlockInput, _("If enabled, any input will be blocked"));
@@ -135,11 +135,11 @@ namespace cheat {
 
         freeCam = reinterpret_cast<app::GameObject*>(freeCamObj);
 
-        freeCam_Transform = app::GameObject_get_transform(freeCam);
-        auto freeCam_Transform_position = app::Transform_get_position(freeCam_Transform);
+        freeCam_Transform = app::GameObject_get_transform(freeCam,nullptr);
+        auto freeCam_Transform_position = app::Transform_get_position(freeCam_Transform, nullptr);
 
-        freeCam_Camera = app::GameObject_GetComponentByName(freeCam, string_to_il2cppi("Camera"));
-        mainCam_Camera = app::GameObject_GetComponentByName(mainCam, string_to_il2cppi("Camera"));
+        freeCam_Camera = app::GameObject_GetComponentByName(freeCam, string_to_il2cppi("Camera"), nullptr);
+        mainCam_Camera = app::GameObject_GetComponentByName(mainCam, string_to_il2cppi("Camera"), nullptr);
 
         if (!FCamisEnabled) {
             targetRotation.InitializeFromTransform(freeCam_Transform);
@@ -151,31 +151,31 @@ namespace cheat {
             FCamisEnabled = true;
         }
 
-        app::GameObject_SetActive(mainCam, false);
-        app::GameObject_SetActive(freeCam, true);
+        app::GameObject_SetActive(mainCam, false, nullptr);
+        app::GameObject_SetActive(freeCam, true, nullptr);
 
         if (FreeCamera.f_Forward.IsDown())
-            targetPosition = targetPosition + app::Transform_get_forward(freeCam_Transform) * FreeCamera.f_MoveSpeed.
+            targetPosition = targetPosition + app::Transform_get_forward(freeCam_Transform, nullptr) * FreeCamera.f_MoveSpeed.
                 getValue();
         
         if (FreeCamera.f_Backward.IsDown())
-            targetPosition = targetPosition - app::Transform_get_forward(freeCam_Transform) * FreeCamera.f_MoveSpeed.
+            targetPosition = targetPosition - app::Transform_get_forward(freeCam_Transform, nullptr) * FreeCamera.f_MoveSpeed.
                 getValue();
         
         if (FreeCamera.f_Left.IsDown())
-            targetPosition = targetPosition - app::Transform_get_right(freeCam_Transform) * FreeCamera.f_MoveSpeed.
+            targetPosition = targetPosition - app::Transform_get_right(freeCam_Transform, nullptr) * FreeCamera.f_MoveSpeed.
                 getValue();
         
         if (FreeCamera.f_Right.IsDown())
-            targetPosition = targetPosition + app::Transform_get_right(freeCam_Transform) * FreeCamera.f_MoveSpeed.
+            targetPosition = targetPosition + app::Transform_get_right(freeCam_Transform, nullptr) * FreeCamera.f_MoveSpeed.
                 getValue();
         
         if (FreeCamera.f_Up.IsDown())
-            targetPosition = targetPosition + app::Transform_get_up(freeCam_Transform) * FreeCamera.f_MoveSpeed.
+            targetPosition = targetPosition + app::Transform_get_up(freeCam_Transform, nullptr) * FreeCamera.f_MoveSpeed.
                 getValue();
         
         if (FreeCamera.f_Down.IsDown())
-            targetPosition = targetPosition - app::Transform_get_up(freeCam_Transform) *
+            targetPosition = targetPosition - app::Transform_get_up(freeCam_Transform, nullptr) *
                 FreeCamera.f_MoveSpeed.getValue();
 
         if (FreeCamera.f_LeftRoll.IsDown())
@@ -192,8 +192,8 @@ namespace cheat {
         if (FreeCamera.f_DecFOV.IsDown())
             smoothFOV -= FreeCamera.f_FOVSpeed.getValue();
 
-        auto mouseX = app::Input_GetAxis(string_to_il2cppi("Mouse X"), nullptr);
-        auto mouseY = app::Input_GetAxis(string_to_il2cppi("Mouse Y"), nullptr);
+        auto mouseX = app::Input_1_GetAxis(string_to_il2cppi("Mouse X"), nullptr);
+        auto mouseY = app::Input_1_GetAxis(string_to_il2cppi("Mouse Y"), nullptr);
         auto mouseInput = app::Vector2{mouseX, mouseY * -1.0f};
         targetRotation.yaw += mouseInput.x * FreeCamera.f_LookSens.getValue();
         targetRotation.pitch += mouseInput.y * FreeCamera.f_LookSens.getValue();
@@ -201,8 +201,8 @@ namespace cheat {
         currentRotation.UpdateTransform(freeCam_Transform);
 
         smoothPosition =
-            app::Vector3_Lerp(freeCam_Transform_position, targetPosition, FreeCamera.f_MovSmoothing.getValue());
-        app::Transform_set_position(freeCam_Transform, smoothPosition);
+            app::Vector3_Lerp(freeCam_Transform_position, targetPosition, FreeCamera.f_MovSmoothing.getValue(), nullptr);
+        app::Transform_set_position(freeCam_Transform, smoothPosition, nullptr);
         smoothFOV =
             app::Mathf_Lerp(app::Camera_get_fieldOfView(reinterpret_cast<app::Camera*>(freeCam_Camera), nullptr),
                             FreeCamera.f_FOV.getValue(), FreeCamera.f_FovSmoothing.getValue(), nullptr);
@@ -216,48 +216,50 @@ namespace cheat {
             return;
 
         if (mainCam != nullptr) {
-            app::GameObject_SetActive(mainCam, true);
+            app::GameObject_SetActive(mainCam, true, nullptr);
             LOG_DEBUG("MainCam Active");
             mainCam = nullptr;
         }
         if (freeCamObj != nullptr) {
-            app::Object_1_DestroyImmediate_1(freeCamObj);
+            app::Object_1_DestroyImmediate_1(freeCamObj, nullptr);
             LOG_DEBUG("FreeCam Destroyed");
             freeCamObj = nullptr;
         }
         FCamisEnabled = false;
     }
 
-    void onGameUpdateFreeCamera(app::EventSystem* __this, app::MethodInfo* method) {
+    void onGameUpdateFreeCamera(void* __this) {
         auto& FreeCamera = FreeCamera::getInstance();
         //static bool isBlock = false;
         if (FreeCamera.f_Enabled.getValue()) {
             if (mainCam == nullptr)
             {
-                mainCam = app::GameObject_Find(string_to_il2cppi("Main Camera"));
-                //auto mainCamobj = app::Camera_get_main(nullptr);
+                //mainCam = app::GameObject_Find(string_to_il2cppi("Main Camera"), nullptr);
+                auto mainCamc = app::Camera_get_main(nullptr);
+                mainCam = app::Component_get_gameObject(reinterpret_cast<app::Component*>(mainCamc), nullptr);
+                LOG_DEBUG("MainCam: %p", mainCam);
             }
             if (freeCamObj == nullptr && mainCam) {
-                auto mainCamTransform = app::GameObject_get_transform(mainCam);
-                auto mainCamPos = app::Transform_get_position(mainCamTransform);
+                auto mainCamTransform = app::GameObject_get_transform(mainCam, nullptr);
+                auto mainCamPos = app::Transform_get_position(mainCamTransform, nullptr);
                 LOG_DEBUG("MainCamPos: %f %f %f", mainCamPos.x, mainCamPos.y, mainCamPos.z);
-                auto mainCamRot = app::Transform_get_rotation(mainCamTransform);
+                auto mainCamRot = app::Transform_get_rotation(mainCamTransform, nullptr);
                 LOG_DEBUG("MainCamRot: %f %f %f %f", mainCamRot.x, mainCamRot.y, mainCamRot.z, mainCamRot.w);
                 freeCamObj = app::Object_1_Instantiate(reinterpret_cast<app::Object_1*>(mainCam), mainCamPos,
                                                          mainCamRot,nullptr);
                 LOG_DEBUG("FreeCamObj: %p", freeCamObj);
 
-                //auto CinemachineBrain = app::GameObject_GetComponentByName(
-                //    reinterpret_cast<app::GameObject*>(freeCamObj), string_to_il2cppi("CinemachineBrain"));
+                auto CinemachineBrain = app::GameObject_GetComponentByName(
+                   reinterpret_cast<app::GameObject*>(freeCamObj), string_to_il2cppi("CinemachineBrain"),nullptr);
                 //auto CinemachineExternalCamera =
                 //    app::GameObject_GetComponentByName(reinterpret_cast<app::GameObject*>(freeCamObj),
                 //                                       string_to_il2cppi("CinemachineExternalCamera"));
-                //app::Object_1_DestroyImmediate_1(reinterpret_cast<app::Object_1*>(CinemachineBrain));
+                app::Object_1_DestroyImmediate_1(reinterpret_cast<app::Object_1*>(CinemachineBrain),nullptr);
                 //app::Object_1_DestroyImmediate_1(reinterpret_cast<app::Object_1*>(CinemachineExternalCamera));
 
                 //app::GameObject_SetActive(mainCam, false);
                 //app::GameObject_SetActive(mainCam, true);
-                app::GameObject_SetActive(reinterpret_cast<app::GameObject*>(freeCamObj), false);
+                app::GameObject_SetActive(reinterpret_cast<app::GameObject*>(freeCamObj), false, nullptr);
             }
             if (freeCamObj != nullptr)
                 EnableFreeCam();
@@ -265,6 +267,6 @@ namespace cheat {
             DisableFreeCam();
         }
 
-        CALL_ORIGIN(onGameUpdateFreeCamera, __this, method);
+        CALL_ORIGIN(onGameUpdateFreeCamera, __this);
     }
 }
