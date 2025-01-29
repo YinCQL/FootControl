@@ -1,27 +1,28 @@
 ﻿# FootControl
 
-### A Magic of Endfield
+### A Magic of FootControl Game 2
 
 ---
 
 ## ✨ Features
 
-- **God Mode**: Invincible gameplay.
-- **Hit Multiplier**: Amplify your damage.
-- **Cooldown**: Remove ability cooldowns.
-- **Stamina**: Unlimited stamina for endless action.
-- **Timescale**: Adjust game speed as you like.
-- **Dumb Monster**: Disable AI for monsters.
+- **God Mode**: Invincible gameplay.(incomplete)
+- **Hit Multiplier**: Amplify your damage.(incomplete)
+- **Cooldown**: Remove ability cooldowns.√
+- **Stamina**: Unlimited stamina for endless action.(incomplete)
+- **Timescale**: Adjust game speed as you like.√
+- **Dumb Monster**: Disable AI for monsters.√
 - **Skip Plot**: Bypass story scenes.
 - **Teleport (incomplete)**: Quickly navigate the map.
-- **Unlock FPS**: Remove frame rate limits.
-- **Anti Dither**: Improve visual clarity.
+- **Unlock FPS**: Remove frame rate limits.√
+- **Anti Dither**: Improve visual clarity.√
+- **Custom Profile**: change UIDPanel.√
 
 ---
 
 ## 🎮 Supported Game Version
 
-- **[CBT OS Version](https://launcher.hg-cdn.com/uXUuLlNbIYmMMTlN/launcher/6/1/Windows/0.3.8_Sf0rvOfH0nZWp5XU/Endfield_TBeta_global_setup.exe)**
+- **[CBT2 OS Version](https://launcher.hg-cdn.com/uXUuLlNbIYmMMTlN/launcher/6/1/Windows/0.3.8_Sf0rvOfH0nZWp5XU/Endfield_TBeta_global_setup.exe)**
 
 ---
 
