@@ -266,7 +266,6 @@
       <FileType>CppHeader</FileType>
     </ClCompile>
     <ClInclude Include="api\imgui\ImGui\imgui_stdlib.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="Resources\entity_map.h" />
     <ClInclude Include="Resources\font_data.h" />
     <ClInclude Include="Resources\language_data.h" />
@@ -322,13 +321,7 @@
     <Library Include="il2cpp\detours.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="gato.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Font Include="themes\fonts\m-n.otf" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="FootControl.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\translations.json" />

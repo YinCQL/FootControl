@@ -72,13 +72,15 @@ DO_APP_FUNC(0x07206CE0, void, GameWorld_HealAllCharacters, (GameWorld* __this, a
 //DO_APP_FUNC(0x0839EDA0, float, Skill_get_cooldown, (Skill* __this, app::MethodInfo* method));
 DO_APP_FUNC(0x083A3240, bool, Skill_CheckCd, (void/*Skill*/* __this, app::MethodInfo* method));
 DO_APP_FUNC(0x083A35C0, bool, Skill_CheckCost, (void/*Skill*/* __this, app::MethodInfo* method));
-
+//DO_APP_FUNC(0x00C8BCD0, int32_t, SC_SYNC_ULTIMATE_SP_CELL_CNT_get_UltimateSpCellCnt, (void/*SC_SYNC_ULTIMATE_SP_CELL_CNT*/* __this, MethodInfo* method));
+DO_APP_FUNC(0x083ADA40, float, AbilitySystem_get_ultimateSp, (void/*AbilitySystem*/* __this, MethodInfo* method));
 
 
 //skip plot
 DO_APP_FUNC(0x070C88E0, void, DialogManager__DoPlayDialog, (void/*DialogManager*/* __this, app::MethodInfo* method));
 DO_APP_FUNC(0x070CAA10, void, DialogManager__ExitDialog, (void/*DialogManager*/* __this, bool isSkip, app::MethodInfo* method));
-
+DO_APP_FUNC(0x0BBB3120, void, Cutscene_Skip, (void/*Cutscene*/* __this, MethodInfo* method));
+DO_APP_FUNC(0x0BBB3130, void, Cutscene_SkipCurrentSection, (void/*Cutscene*/* __this, MethodInfo* method));
 
 //stamina
 
