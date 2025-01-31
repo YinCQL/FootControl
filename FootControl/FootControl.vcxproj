@@ -157,7 +157,9 @@
     <ClCompile Include="Functions\Player\CoolDown.cpp" />
     <ClCompile Include="Functions\Player\Damage.cpp" />
     <ClCompile Include="Functions\Player\PlayerSpeed.cpp" />
-    <ClCompile Include="Functions\Player\Stamina.cpp" />
+    <ClCompile Include="Functions\Player\Stamina.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="functions\settings\Settings.cpp" />
     <ClCompile Include="functions\about\About.cpp" />
     <ClCompile Include="Functions\visuals\AntiDither.cpp" />
@@ -200,7 +202,9 @@
     <ClInclude Include="Functions\Player\CoolDown.h" />
     <ClInclude Include="Functions\Player\Damage.h" />
     <ClInclude Include="Functions\Player\PlayerSpeed.h" />
-    <ClInclude Include="Functions\Player\Stamina.h" />
+    <ClInclude Include="Functions\Player\Stamina.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="functions\settings\Settings.h" />
     <ClCompile Include="config\ConfigManager.cpp">
       <FileType>CppHeader</FileType>
@@ -224,7 +228,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="Functions\World\SkipPlot.h" />
-    <ClInclude Include="Games\Entity.h" />
+    <ClInclude Include="Games\Entity.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Games\EntityFilter.h" />
     <ClInclude Include="Games\EntityManager.h" />
     <ClInclude Include="Games\Event\Event.h" />

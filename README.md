@@ -1,7 +1,7 @@
 ﻿# FootControl
 
 ### A Magic of FootControl Game 2
-
+command:workbench.trust.manage
 ---
 
 ## ✨ Features
@@ -29,7 +29,7 @@
 ## 🛠️ How to Use
 
 1. Download the supported game version.
-2. Follow the installation instructions in the repository.
+2. Build and then inject the DLL files.
 3. Activate desired features through the FootControl interface.
 
 ---
@@ -38,13 +38,15 @@
 
 This project is for educational purposes only. Use responsibly.
 
----
-
 Enjoy your enhanced gameplay experience!
 
+---
 
-##Tips
 
-some code use - **[Minty-Old](https://github.com/kindawindytoday/Minty-Old)**
+
+## ⚠️Tips
+
+some code from
+- **[Minty-Old](https://github.com/kindawindytoday/Minty-Old)**
 ---
 

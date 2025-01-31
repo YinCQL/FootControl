@@ -62,8 +62,7 @@ DO_APP_FUNC(0x07343BA0, void, ActorController_TeleportToTempFix, (void/*ActorCon
 //DO_APP_FUNC(0x07F3FB20, void, InteractiveInstigatorControlComponent_PickUp, (InteractiveInstigatorControlComponent* __this, app::MethodInfo* method));
 
 
-//tp
-//DO_APP_FUNC(0x070F2360, void, CharacterController_1_TeleportToWithFx, (CharacterController_1* __this, Vector3 pos, bool playBlinkFx, bool playDissolveFx, app::MethodInfo* method));
+
 
 //killaura
 DO_APP_FUNC(0x07205BB0, void, GameWorld_KillAllEnemies, (GameWorld* __this, app::MethodInfo* method));
@@ -84,10 +83,11 @@ DO_APP_FUNC(0x0BBB3130, void, Cutscene_SkipCurrentSection, (void/*Cutscene*/* __
 
 //stamina
 
-DO_APP_FUNC(0x00BF5EF0, uint32_t, SC_SYNC_STAMINA_get_CurStamina, (app::SC_SYNC_STAMINA* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x00BF5EF0, uint32_t, SC_SYNC_STAMINA_get_CurStamina, (app::SC_SYNC_STAMINA* __this, app::MethodInfo* method));
 //DO_APP_FUNC(0x017F6020, CharCurStamina*, Beyond_Gameplay_CharCurStaminaForMemoryPack_GetValue, (Beyond_Gameplay_CharCurStaminaForMemoryPack* __this, app::MethodInfo* method));
-
-
+//DO_APP_FUNC(0x06E5E620, float, PlayerController_get_maxDashCount, (void/*PlayerController*/* __this, app::MethodInfo* method));
+//DO_APP_FUNC(0x06C055A0, int32_t, GlobalConst_get_dashCostEnergyValue, (void/*GlobalConst*/* __this, app::MethodInfo* method));
+ DO_APP_FUNC(0x06C27060, int32_t, Tables_GlobalConst_get_dashCostEnergyValue, (void/*Tables_GlobalConst*/ * __this, app::MethodInfo * method));
 //monsterAI
 
 DO_APP_FUNC(0x0812C120, void, EnemyAIBrain_SwitchAIMode, (void/*EnemyAIBrain*/* __this, app::EnemyAIModeType__Enum modeType, bool force, app::MethodInfo* method));
@@ -109,22 +109,14 @@ DO_APP_FUNC(0x07B6F7B0, void, GameplayNetwork_C2STeleport, (void/*GameplayNetwor
 DO_APP_FUNC(0x07F659D0, void, GameAction_TeleportTeam, (app::Vector3 position, app::Vector3 rotation, app::MethodInfo* method));
 //DO_APP_FUNC(0x07F67270, void, GameAction_TeleportTo, (app::String* levelIdStr, app::TeleportReason__Enum reason, app::Vector3 position, app::Vector3 rotationEuler, app::MethodInfo* method));
 //DO_APP_FUNC(0x07F67710, void, GameAction_TeleportToPosition, (app::String* sceneId, app::TeleportReason__Enum reason, app::Vector3 pos, app::Quaternion rotation, app::MethodInfo* method));
+ DO_APP_FUNC(0x01FA8AE0, app::Vector3, Beyond_Gameplay_PosTrackingInfoForMemoryPack_get___trackingPos__, (void/*Beyond_Gameplay_PosTrackingInfoForMemoryPack*/ * __this, MethodInfo * method));
+//DO_APP_FUNC(0x070F2360, void, CharacterController_1_TeleportToWithFx, (CharacterController_1* __this, Vector3 pos, bool playBlinkFx, bool playDissolveFx, app::MethodInfo* method));
 // 
 //custom Profile
 
 DO_APP_FUNC(0x036F4F40, app::String*, UtilsForLua_GetCurrentUID, ());
-//UnityEngine.UI.Text$没改
-//DO_APP_FUNC(0x022dcc00, void, Text_set_text, (app::Text* __this, app::String* value));
-//////UnityEngine.UI.Text$$set_text
-//DO_APP_FUNC(0x024DD020, void, Text_set_alignment, (app::Text* __this, app::TextAnchor__Enum value));
-//DO_APP_FUNC(0x024DD270, void, Text_set_horizontalOverflow, (app::Text* __this, app::HorizontalWrapMode__Enum value));
-//DO_APP_FUNC(0x024DD5A0, void, Text_set_verticalOverflow, (app::Text* __this, app::VerticalWrapMode__Enum value));
-//DO_APP_FUNC(0x024DD330, void, Text_set_resizeTextForBestFit, (app::Text* __this, bool value));
-//DO_APP_FUNC(0x024DD090, void, Text_set_fontSize, (app::Text* __this, int32_t value));
-//UnityEngine.UI.Slider
-//DO_APP_FUNC(0x024DA1B0, void, Slider_set_minValue, (app::Slider_1* __this, float value));
-//DO_APP_FUNC(0x024D9EA0, void, Slider_set_maxValue, (app::Slider_1* __this, float value));
-//DO_APP_FUNC(0x024DA290, void, Slider_set_value, (app::Slider_1* __this, float value));
+DO_APP_FUNC(0x0C71CA40, app::String*, TMP_Text_get_text, (void/*TMP_Text*/* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C71CB20, void, TMP_Text_set_text, (void/*TMP_Text*/* __this, app::String* value, MethodInfo* method));
 
 
 
@@ -133,10 +125,13 @@ DO_APP_FUNC(0x036F4F40, app::String*, UtilsForLua_GetCurrentUID, ());
 DO_APP_FUNC(0x0B2D0140, app::String*, Marshal_PtrToStringAnsi, (void* ptr, app::MethodInfo* method));
 DO_APP_FUNC(0x06DC9580, app::String*, I18nUtils_GetText, (app::String* key));
 //playerspeed
+// 
 
+//DO_APP_FUNC(0x072BE5E0, app::Vector3, MovementComponent_get_velocity, (void/*MovementComponent*/* __this, MethodInfo* method));
+//DO_APP_FUNC(0x072BE670, float, MovementComponent_get_speed, (void/*MovementComponent*/* __this, MethodInfo* method));
 DO_APP_FUNC(0x0735E800, void/*SelfTimeScaleHandle*/*, Entity_SetSelfTimeScale, (app::Entity* __this, float selfTimeScale, app::MethodInfo* method));
 //DO_APP_FUNC(0x0C926250, void, Rigidbody_set_velocity, (void/*Rigidbody*/* __this, app::Vector3 value, MethodInfo* method));
-//DO_APP_FUNC(0x0C9261E0, app::Vector3, Rigidbody_get_velocity, (Rigidbody* __this, MethodInfo* method));
+DO_APP_FUNC(0x0C9261E0, app::Vector3, Rigidbody_get_velocity, (void/*Rigidbody*/* __this, MethodInfo* method));
 //DO_APP_FUNC(0x0C8093B0, float, Animator_get_timeScale, (Animator* __this, app::MethodInfo* method));
 //DO_APP_FUNC(0x0C809400, void, Animator_set_timeScale, (Animator* __this, float value, app::MethodInfo* method));
 //DO_APP_FUNC(0x0C809460, float, Animator_get_speed, (Animator* __this, app::MethodInfo* method));
@@ -275,8 +270,7 @@ DO_APP_FUNC(0x02F52590, float, Mathf_LerpAngle, (float a, float b, float t, Meth
 //DO_APP_FUNC(0x0CB82830, float, BaseInput_GetAxisRaw, (BaseInput * __this, String * axisName, MethodInfo * method));
 DO_APP_FUNC(0x0C9054A0, float, Input_1_GetAxis, (String* axisName, app::MethodInfo* method));
 
-DO_APP_FUNC(0x0C71CA40, app::String*, TMP_Text_get_text, (void/*TMP_Text*/* __this, MethodInfo* method));
-DO_APP_FUNC(0x0C71CB20, void, TMP_Text_set_text, (void/*TMP_Text*/* __this, app::String* value, MethodInfo* method));
+
 
 // Protection bypass
 
