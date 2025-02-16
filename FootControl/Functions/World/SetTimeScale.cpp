@@ -50,7 +50,7 @@ namespace cheat {
 		auto& SetTimeScale = SetTimeScale::getInstance();
 
 
-		app::Time_set_timeScale(SetTimeScale.f_Enabled.getValue() ? SetTimeScale.f_Speed.getValue() : 1.0f, nullptr);
+		app::Time_1_set_timeScale(SetTimeScale.f_Enabled.getValue() ? SetTimeScale.f_Speed.getValue() : 1.0f, nullptr);
 
 		return CALL_ORIGIN(Global_Update_timescale_Hook, __this);
 	}

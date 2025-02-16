@@ -21,6 +21,8 @@ namespace cheat {
 		f_Resolutionfullscreen = config::getValue("functions:Debug:Resolution", "fullscreenvalue", false);
 		f_UIInspector = config::getValue("functions:Debug", "UIInspector", false);
 		HookManager::install(app::EventSystem_RaycastAll, EventSystem_RaycastAll_Hook);// 获取鼠标下组件
+		//HookManager::install(app::Debug_1_get_developerConsoleEnabled, Debug_1_get_developerConsoleEnabled_Hook);
+  //      HookManager::install(app::Debug_1_set_developerConsoleEnabled, Debug_1_set_developerConsoleEnabled_Hook);
 		
 
 	}
@@ -89,49 +91,22 @@ namespace cheat {
 		//ImGui::Text("i18ntest CD52E42DDB72692B: %s",text.c_str() );
 		ImGui::Separator();
 		if (ImGui::Button("tp")) {
-			Tpto(app::Vector3(tpx,tpy,tpz));
+			Tpto(app::Vector3(tpx, tpy, tpz));
 		}
 		ImGui::SameLine();
 		if (ImGui::Button("tp by map")) {
 			NetTpto(app::Vector3(tpx, tpy, tpz), mapid);
 		}
-		ImGui::InputFloat("x",&tpx);
-        ImGui::InputFloat("y",&tpy);
-        ImGui::InputFloat("z",&tpz);
+		ImGui::InputFloat("x", &tpx);
+		ImGui::InputFloat("y", &tpy);
+		ImGui::InputFloat("z", &tpz);
 		ImGui::InputInt("MapId", &mapid);
 		ConfigCheckbox(_("Mouse UI in Inspector"), f_UIInspector, _("Mouse UI in Inspector"));
-		//if (ImGui::Button("level")) {
-		//	std::string level = il2cppi_to_string( app::GameUtil_GetCntLevelId());
-		//	LOG_DEBUG("level: %s",level.c_str());
-		//	
-		//	LOG_DEBUG("levelint: %d", app::GameUtil_LevelIdStringToNum(app::GameUtil_GetCntLevelId()));
-		//}
-		//if (ImGui::Button("uid")) {
-		//
-		//	auto a =app::GameObject_Find(string_to_il2cppi("UidPanel"), nullptr);
-		//	if(a!=nullptr)
-		//	LOG_DEBUG("UidPanel: TRUE count:%d", app::Transform_GetChildCount(app::GameObject_get_transform(a, nullptr),nullptr));
-		//	auto Canvas = app::GameObject_Find(string_to_il2cppi("Canvas"), nullptr);
-		//	if (Canvas != nullptr)
-		//		LOG_DEBUG("Canvas: TRUE count:%d", app::Transform_GetChildCount(app::GameObject_get_transform(Canvas, nullptr), nullptr));
-		//	auto b = app::GameObject_Find(string_to_il2cppi("UID"), nullptr);
-		//	if (b != nullptr)
-		//		LOG_DEBUG("Uid: TRUE count:%d", app::Transform_GetChildCount(app::GameObject_get_transform(b, nullptr), nullptr));
-			//for (int i = 0; i <= app::Transform_GetChildCount(app::GameObject_get_transform(Canvas, nullptr), nullptr) - 1; i++)
-			//{
-			//	auto Component = app::Transform_GetChild(reinterpret_cast<app::Transform*>(app::GameObject_get_transform(Canvas, nullptr)), i,nullptr);
-			//	//LOG_DEBUG("found child");
-			//	auto GameOb = app::Component_get_gameObject(reinterpret_cast<app::Component*>(Component),nullptr);
-   //             if (GameOb != nullptr)
-			//	{
-			//		auto name = app::Object_1_get_name(reinterpret_cast<app::Object_1*>(GameOb), nullptr);
-			//		LOG_DEBUG("found obj: %s", il2cppi_to_string(name).c_str());
-			//	}
+		if (ImGui::Button("find level objs")) {
+			
 
-			//}
-		//}
+		}
 	}
-
 
 
 	void Debug::Outer() {
@@ -183,7 +158,42 @@ namespace cheat {
 
 	}
 
+	//void PrintGameObjectPath(app::Transform* transform, const std::string& path = "") {
+	//	if (!transform) return;
 
+	//	// 获取当前对象的名称
+	//	app::GameObject* gameObject = app::Component_get_gameObject(reinterpret_cast<app::Component*>(transform),nullptr);
+	//	if (!gameObject) return;
+
+	//	std::string currentPath = path.empty() ? il2cppi_to_string(app::Object_1_get_name(reinterpret_cast<app::Object_1*>(gameObject),nullptr)): path + "/" + il2cppi_to_string(app::Object_1_get_name(reinterpret_cast<app::Object_1*>(gameObject), nullptr));
+
+	//	// 输出完整路径
+	//	std::cout << "obj: "<<currentPath << std::endl;
+
+	//	// 遍历所有子物体
+	//	int childCount = app::Transform_get_childCount(transform,nullptr);
+	//	for (int i = 0; i < childCount; i++) {
+	//		app::Transform* child = app::Transform_GetChild(transform, i,nullptr);
+	//		PrintGameObjectPath(child, currentPath);
+	//	}
+	//}
+
+	//void DumpRootGameObjects() {
+	//	// 获取当前场景所有的 Transform 组件
+	//	auto* allTransforms = app::Object_1_FindObjectsOfType(<app::Transform>,nullptr);
+	//	if (!allTransforms) return;
+
+	//	int count = allTransforms->max_length;
+	//	for (int i = 0; i < count; i++) {
+	//		UnityEngine::Transform* transform = allTransforms->vector[i];
+	//		if (!transform) continue;
+
+	//		// 仅处理根对象（没有父级 Transform）
+	//		if (UnityEngine::Transform::get_parent(transform) == nullptr) {
+	//			PrintGameObjectPath(transform);
+	//		}
+	//	}
+	//}
 
 
 }

@@ -2903,6 +2903,13 @@ struct Object__1__Class {
     Il2CppClass_1 _1;
     struct Object__1__VTable vtable;
 };
+struct Object_1__Array {
+    struct Object_1__Array__Class* klass;
+    MonitorData* monitor;
+    Il2CppArrayBounds* bounds;
+    il2cpp_array_size_t max_length;
+    struct Object_1* vector[32];
+};
 
 struct Component__Fields {
     struct Object_1__Fields _;
@@ -3696,5 +3703,86 @@ struct List_1_UnityEngine_EventSystems_RaycastResult_ {
     struct List_1_UnityEngine_EventSystems_RaycastResult___Class* klass;
     MonitorData* monitor;
     struct List_1_UnityEngine_EventSystems_RaycastResult___Fields fields;
+};
+enum DamageType__Enum {
+    DamageType__Enum_Physical = 0x00000000,
+    DamageType__Enum_Real = 0x00000001,
+    DamageType__Enum_Fire = 0x00000002,
+    DamageType__Enum_Pulse = 0x00000003,
+    DamageType__Enum_Cryst = 0x00000004,
+    DamageType__Enum_LifeDrain = 0x00000005,
+    DamageType__Enum_Natural = 0x00000006,
+    DamageType__Enum_Ether = 0x00000007,
+};
+enum DamageDecorateMask__Enum {
+    DamageDecorateMask__Enum_None = 0x00000000,
+    DamageDecorateMask__Enum_PoiseBreak = 0x00000001,
+    DamageDecorateMask__Enum_PowerAttack = 0x00000004,
+    DamageDecorateMask__Enum_FireAbnormalInitial = 0x00000008,
+    DamageDecorateMask__Enum_PulseAbnormalInitial = 0x00000010,
+    DamageDecorateMask__Enum_CrystAbnormalInitial = 0x00000020,
+    DamageDecorateMask__Enum_IgniteByMud = 0x00000040,
+    DamageDecorateMask__Enum_NormalAttack = 0x00000080,
+    DamageDecorateMask__Enum_NormalSkill = 0x00000100,
+    DamageDecorateMask__Enum_UltimateSkill = 0x00000200,
+    DamageDecorateMask__Enum_PlungingAttack = 0x00000400,
+    DamageDecorateMask__Enum_NormalAttackEffect = 0x00000800,
+    DamageDecorateMask__Enum_CanBreakWeakness = 0x00001000,
+    DamageDecorateMask__Enum_ComboSkill = 0x00002000,
+    DamageDecorateMask__Enum_Crush = 0x00004000,
+    DamageDecorateMask__Enum_Airborne = 0x00008000,
+    DamageDecorateMask__Enum_KnockDown = 0x00010000,
+    DamageDecorateMask__Enum_DashAttack = 0x00020000,
+    DamageDecorateMask__Enum_NaturalAbnormalInitial = 0x00100000,
+    DamageDecorateMask__Enum_NormalAttackLastCombo = 0x00200000,
+    DamageDecorateMask__Enum_FireBurst = 0x00400000,
+    DamageDecorateMask__Enum_CrystBurst = 0x00800000,
+    DamageDecorateMask__Enum_PulseBurst = 0x01000000,
+    DamageDecorateMask__Enum_NaturalBurst = 0x02000000,
+    DamageDecorateMask__Enum_Burning = 0x04000000,
+    DamageDecorateMask__Enum_Shatter = 0x08000000,
+    DamageDecorateMask__Enum_Dot = 0x10000000,
+    DamageDecorateMask__Enum_RemainArea = 0x20000000,
+    DamageDecorateMask__Enum_IgnoreDodgeImmune = 0x00040000,
+    DamageDecorateMask__Enum_IgnoreSkillImmune = 0x00080000,
+    DamageDecorateMask__Enum_IgniteDamageSet = 0x0fd00038,
+    DamageDecorateMask__Enum_NormalAttackDamageSet = 0x00020484,
+    DamageDecorateMask__Enum_All = -1,
+};
+
+enum AbilitySystem_Modifier_DamageVisualImportance__Enum {
+    AbilitySystem_Modifier_DamageVisualImportance__Enum_Level0 = 0x00000000,
+    AbilitySystem_Modifier_DamageVisualImportance__Enum_Level1 = 0x00000001,
+    AbilitySystem_Modifier_DamageVisualImportance__Enum_Hidden = 0x00000002,
+};
+
+struct Nullable_1_UnityEngine_Vector3_ {
+    bool hasValue;
+    struct Vector3 value;
+};
+struct ObjectPtr_1_Beyond_Gameplay_Core_AbilitySystem_ {
+    struct AbilitySystem* obj;
+    uint32_t cachedUid;
+};
+struct AbilitySystem_Modifier {
+    struct ObjectPtr_1_Beyond_Gameplay_Core_AbilitySystem_ m_source;
+    struct ObjectPtr_1_Beyond_Gameplay_Core_AbilitySystem_ m_target;
+    int32_t m_sharedFlagMask;
+    int32_t _deltaType_k__BackingField;
+
+    double _value_k__BackingField;
+    struct String* _sharedValueStr_k__BackingField;
+    int32_t _targetType_k__BackingField;
+    int32_t _cancelReason_k__BackingField;
+    int32_t _damageType_k__BackingField;
+    int32_t _damageDecorateMask_k__BackingField;
+
+    struct GameplayTagList* _modifierTags_k__BackingField;
+    double _realDelta_k__BackingField;
+    int32_t _damageVisualImportance_k__BackingField;
+    struct AbilitySystem_Modifier_DamageVisualCoalition* _damageVisualCoalition_k__BackingField;
+    struct Nullable_1_UnityEngine_Vector3_ _hitPoint_k__BackingField;
+    bool _hidePoiseUIEffect_k__BackingField;
+    bool _hideMainCharHpScreenEffect_k__BackingField;
 };
 #endif // IL2CPP_TYPES_H

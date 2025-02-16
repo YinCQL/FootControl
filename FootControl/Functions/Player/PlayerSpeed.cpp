@@ -9,7 +9,7 @@ namespace cheat {
         f_Hotkey = Hotkey("functions:PlayerSpeed");
 
         //HookManager::install(app::GameApp_Update, GameApp_Update_Hook);
-        HookManager::install(app::Rigidbody_get_velocity, Rigidbody_get_velocity_Hook);
+       // HookManager::install(app::Rigidbody_get_velocity, Rigidbody_get_velocity_Hook);
     }
 
     PlayerSpeed& PlayerSpeed::getInstance() {

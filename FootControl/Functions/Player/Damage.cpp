@@ -1,8 +1,9 @@
 ﻿#include "Damage.h"
 
 namespace cheat {
-   // static void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method);
-    //static void/*app::BattleNormalEffect*/* EffectManager_CreateEffectOnTarget_Hook (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source);
+
+    static void/*app::BattleNormalEffect*/* EffectManager_CreateEffectOnTarget_Hook (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source);
+    static app::AbilitySystem_Modifier AbilitySystem_Modifier_NewDamage_Hook(void /*AbilitySystem*/* source, void /*AbilitySystem*/* target, double value, app::DamageType__Enum damageType, app::DamageDecorateMask__Enum damageDecorateMask, app::AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, app::String* damageSourceId, void/*AbilitySystem_Modifier_DamageVisualCoalition*/* damageVisualCoalition, app::Nullable_1_UnityEngine_Vector3_ hitPoint, bool hideMainCharHpScreenEffect, app::MethodInfo* method);
 
     Damage::Damage() {
         f_GodMode = config::getValue("functions:Damage", "GodMode", false);
@@ -10,9 +11,9 @@ namespace cheat {
         f_HitMultiplier_Value = config::getValue("functions:Damage", "HitMultiplierValue", 1);
 
         f_Hotkey = Hotkey("functions:Damage");
+      //  HookManager::install(app::AbilitySystem_Modifier_NewDamage, AbilitySystem_Modifier_NewDamage_Hook);
+       // HookManager::install(app::EffectManager_CreateEffectOnTarget, EffectManager_CreateEffectOnTarget_Hook);
 
-        //HookManager::install(app::BattleHitReactionManager_Hit, BattleHitReactionManager_Hit_Hook);
-      //  HookManager::install(app::EffectManager_CreateEffectOnTarget, EffectManager_CreateEffectOnTarget_Hook);
     }
 
     Damage& Damage::getInstance() {
@@ -51,35 +52,25 @@ namespace cheat {
         return _("Player");
     }
 
+   //app::AbilitySystem_Modifier AbilitySystem_Modifier_NewDamage_Hook(void /*AbilitySystem*/* source, void /*AbilitySystem*/* target, double value, app::DamageType__Enum damageType, app::DamageDecorateMask__Enum damageDecorateMask, app::AbilitySystem_Modifier_DamageVisualImportance__Enum damageVisualImportance, bool isCritical, app::String* damageSourceId, void/*AbilitySystem_Modifier_DamageVisualCoalition*/* damageVisualCoalition, app::Nullable_1_UnityEngine_Vector3_ hitPoint, bool hideMainCharHpScreenEffect, app::MethodInfo* method) {
+   //    LOG_DEBUG("AbilitySystem_Modifier_NewDamage_Hook");
+   //     //return CALL_ORIGIN(AbilitySystem_Modifier_NewDamage_Hook, source, target, double(9999999) ,damageType, damageDecorateMask, damageVisualImportance, isCritical, damageSourceId, damageVisualCoalition, hitPoint, hideMainCharHpScreenEffect, method);
+   //     return CALL_ORIGIN(AbilitySystem_Modifier_NewDamage_Hook, source, target, value, damageType, damageDecorateMask, damageVisualImportance, isCritical, damageSourceId, damageVisualCoalition, hitPoint, hideMainCharHpScreenEffect, method);
+  //  }
 
-    //void BattleHitReactionManager_Hit_Hook(void/*BattleHitReactionManager*/* __this, app::Entity* attacker, app::String* hitMethodId, float hitValue, bool dontHitImportantInteractive, app::BattleHitReactionManager_HitInfo hitInfo, app::MethodInfo* method) {
-    //    LOG_DEBUG("BattleHitReactionManager_Hit_Hook hitValue:%f ", hitValue);
-    //    LOG_DEBUG("BattleHitReactionManager_Hit_Hook attacker:%s ", il2cppi_to_string(attacker->fields._name_k__BackingField).c_str());
+   void* EffectManager_CreateEffectOnTarget_Hook (void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source) {
+       auto tar = app::AbilitySystem_get_objectType(target,nullptr);
+       auto sou = app::AbilitySystem_get_objectType(source, nullptr);
+       if ( sou == app::ObjectType__Enum::ObjectType__Enum_Enemy&& tar == app::ObjectType__Enum::ObjectType__Enum_Character) {
+           LOG_DEBUG("sou :Enemy tar chara");    
+           return nullptr;
+       }
+       if (sou == app::ObjectType__Enum::ObjectType__Enum_Enemy && tar == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
+           LOG_DEBUG("sou :Enemy ");
+           return nullptr;
+       }
 
-    //    return;
-    ////    auto& Damage = Damage::getInstance();
-    ////    auto attackerenum= app::Entity_get_objectType(attacker, nullptr);
-    ////    if (Damage.f_GodMode&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
-    ////        return;
-    ////       // hitValue = 0;
-    ////    }
-    ////    if (Damage.f_HitMultiplier&& attackerenum == app::ObjectType__Enum::ObjectType__Enum_Character) {
-    ////        //hitValue *= Damage.f_HitMultiplier_Value;
-    ////        for (int i = 0; i < Damage.f_HitMultiplier_Value.getValue(); i++) {
-    ////            CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
-    ////        }
-    ////            
-    ////        return;
-    ////    }
-    ////    return CALL_ORIGIN(BattleHitReactionManager_Hit_Hook, __this, attacker, hitMethodId, hitValue, dontHitImportantInteractive, hitInfo, method);
-    //}
-    //void/*app::BattleNormalEffect*/* EffectManager_CreateEffectOnTarget_Hook(void/*EffectManager*/* __this, void/*EffectActionCfg*/* effectCfg, void/*app::AbilitySystem*/* target, app::Vector3 dir, void/*ITickOwner*/* timeScaleSource, app::String* overrideName, void /*app::AbilitySystem*/* source) {
-    //
-    //    auto& Damage = Damage::getInstance();
-    //    auto sourceAb = app::AbilitySystem_get_objectType(source,nullptr);
-    //    if( Damage.f_GodMode.getValue() && sourceAb == app::ObjectType__Enum::ObjectType__Enum_Enemy) {
-    //        return nullptr;
-    //    }
-    //    return CALL_ORIGIN(EffectManager_CreateEffectOnTarget_Hook, __this, effectCfg, target, dir, timeScaleSource, overrideName, source);
-    //}
+
+       return CALL_ORIGIN(EffectManager_CreateEffectOnTarget_Hook, __this, effectCfg, target, dir, timeScaleSource, overrideName, source);
+   }
 }
