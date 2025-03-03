@@ -273,9 +273,10 @@ DO_APP_FUNC(0x02F52590, float, Mathf_LerpAngle, (float a, float b, float t, Meth
 //DO_APP_FUNC(0x0CB82830, float, BaseInput_GetAxisRaw, (BaseInput * __this, String * axisName, MethodInfo * method));
 DO_APP_FUNC(0x0C90CBE0, float, Input_1_GetAxis, (String* axisName, app::MethodInfo* method));
 
-DO_APP_FUNC(0x0C838FE0, bool, Debug_1_get_developerConsoleEnabled, (MethodInfo* method));
-DO_APP_FUNC(0x0C839030, void, Debug_1_set_developerConsoleEnabled, (bool value, MethodInfo* method));
+//proxy
 
+DO_APP_FUNC(0x0CB97360, app::String*, WebRequestUtils_MakeInitialUrl, (app::String* targetUrl, app::String* localUrl, app::MethodInfo* method));
+DO_APP_FUNC(0x0CB9C430, app::String*, UnityWebRequest_get_url, (void/*app::UnityWebRequest*/* __this, MethodInfo* method));
 // Protection bypass
 
 

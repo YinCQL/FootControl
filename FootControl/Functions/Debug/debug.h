@@ -14,6 +14,8 @@ namespace cheat {
 	ConfigField<int> f_Resolutionheight;
 	ConfigField<bool> f_Resolutionfullscreen;
 	ConfigField<bool> f_UIInspector;
+	ConfigField<bool> f_Proxy;
+	ConfigField<std::string> f_Proxyhost;
 
 	void GUI() override;
 	void Outer() override;

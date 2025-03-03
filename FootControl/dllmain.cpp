@@ -2,13 +2,81 @@
 #include "il2cpp/il2cpp-init.hpp"
 
 #include "includes.h"
-//#include "utils/discordrpc/Discord.h"
-
+#include "api/json/json.hpp"
+using json = nlohmann::json;
+bool proxy = false;
+std::string proxyhost = "";
 
 #include "functions/Settings/Settings.h"
+static app::String* WebRequestUtils_MakeInitialUrl_Hook(app::String* targetUrl, app::String* localUrl, app::MethodInfo* method);
+app::String* UnityWebRequest_get_url_Hook (void/*app::UnityWebRequest*/* __this, app::MethodInfo* method);
 
-//Discord* g_Discord;
+static void get_proxy() {
+    std::ifstream file("FootControl.json");
+    if (!file.is_open()) {
+        // std::cerr << "无法打开 FootControl.json 文件" << std::endl;
+        return;
+    }
 
+    json data;
+    try {
+        file >> data;
+    }
+    catch (json::parse_error& e) {
+        // 处理 JSON 解析错误，例如文件格式错误
+        // std::cerr << "JSON 解析错误: " << e.what() << std::endl;
+        return;
+    }
+
+    if (data.contains("functions") && data["functions"].contains("Debug")) {
+        auto debug = data["functions"]["Debug"];
+        if (debug.contains("Proxyhost") && debug.contains("Proxy")) {
+            proxyhost = debug["Proxyhost"];
+            proxy = debug["Proxy"];
+        }
+        else {
+            //缺少proxyhost或者proxy，直接返回
+            return;
+        }
+
+    }
+    else {
+        // 如果找不到 "functions" 或 "Debug" 键，直接返回
+        return;
+    }
+}
+app::String* WebRequestUtils_MakeInitialUrl_Hook(app::String* targetUrl, app::String* localUrl, app::MethodInfo* method) {
+    LOG_DEBUG("WebRequestUtils_MakeInitialUrl_Hook targetUrl: %s", il2cppi_to_string(targetUrl).c_str());
+    LOG_DEBUG("WebRequestUtils_MakeInitialUrl_Hook localUrl: %s", il2cppi_to_string(localUrl).c_str());
+
+    auto re = CALL_ORIGIN(WebRequestUtils_MakeInitialUrl_Hook, targetUrl, localUrl, method);
+    std::string reurl = il2cppi_to_string(re);
+    LOG_DEBUG("WebRequestUtils_MakeInitialUrl_Hook return: %s", reurl.c_str());
+    get_proxy();
+    if (proxy&& proxyhost!="") {
+        std::string or_url = reurl;
+        size_t pos = reurl.find("gryphline.com");
+        if (pos != std::string::npos) {
+            reurl.replace(pos, std::string("gryphline.com").length(), proxyhost);
+        }
+
+        pos = reurl.find("hg-cdn.com");
+        if (pos != std::string::npos) {
+            reurl.replace(pos, std::string("hg-cdn.com").length(), proxyhost);
+        }
+        LOG_WARNING("Proxy: %s -->%s", or_url.c_str(), reurl.c_str());
+        return string_to_il2cppi(reurl); // 将修改后的 std::string 转换回 app::String*
+    }
+
+    return re;
+}
+app::String* UnityWebRequest_get_url_Hook (void/*app::UnityWebRequest*/* __this, app::MethodInfo* method) {
+    auto re =CALL_ORIGIN(UnityWebRequest_get_url_Hook, __this, method);
+    LOG_DEBUG("UnityWebRequest_get_url_Hook return: %s", il2cppi_to_string(re).c_str());
+
+    //todo
+    return re;
+}
 DWORD WINAPI MainThread(LPVOID lpReserved) {
     AllocConsole();
     FILE* Dummy;
@@ -23,6 +91,9 @@ DWORD WINAPI MainThread(LPVOID lpReserved) {
 
     LOG_INFO("Initializing IL2CPP...");
    init_il2cpp();
+   
+   HookManager::install(app::WebRequestUtils_MakeInitialUrl, WebRequestUtils_MakeInitialUrl_Hook);
+   HookManager::install(app::UnityWebRequest_get_url, UnityWebRequest_get_url_Hook);
     Sleep(5000);
     LOG_INFO("Initialized IL2CPP");
 
