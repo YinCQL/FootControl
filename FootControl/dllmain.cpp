@@ -80,7 +80,7 @@ app::String* WebRequestUtils_MakeInitialUrl_Hook(app::String* targetUrl, app::St
     
         LOG_WARNING("Proxy: %s --> %s", original_url.c_str(), reurl.c_str());
         return string_to_il2cppi(reurl);
-
+    }
     return re;
 }
 app::String* UnityWebRequest_get_url_Hook (void/*app::UnityWebRequest*/* __this, app::MethodInfo* method) {
